@@ -15,7 +15,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenModal }) => {
         <motion.img
           src={project.image}
           alt={project.title}
-          className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
           <div className="p-4 text-white">
@@ -31,17 +31,24 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenModal }) => {
                 <ExternalLink className="w-4 h-4 mr-1" />
                 Live Demo
               </motion.a>
-              <motion.a
-                href={project.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center bg-gray-800 px-3 py-2 rounded-lg hover:bg-gray-900"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Github className="w-4 h-4 mr-1" />
-                Code
-              </motion.a>
+              {
+                project.githubLink ? (
+                  <motion.a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center bg-gray-800 px-3 py-2 rounded-lg hover:bg-gray-900"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Github className="w-4 h-4 mr-1" />
+                    Code
+                  </motion.a>
+                ) : (
+                  <span className="text-gray-500 italic">Private Repository</span>
+                )
+              }
+
             </div>
           </div>
         </div>

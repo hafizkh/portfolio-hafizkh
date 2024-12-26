@@ -3,10 +3,6 @@ import { motion } from 'framer-motion';
 import { filters } from '../../data/projectFilter';
 import { ProjectFilterProps } from '../../types/project';
 
-
-
-
-
 function ProjectFilter({ activeFilter, onFilterChange }: ProjectFilterProps) {
   return (
     <div className="flex flex-wrap justify-center gap-4 mb-12">

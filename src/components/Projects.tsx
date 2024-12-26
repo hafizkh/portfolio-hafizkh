@@ -52,14 +52,36 @@ function Projects() {
         </AnimatePresence>
 
         {filteredProjects.length === 0 && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center text-gray-600 mt-8"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="flex flex-col items-center text-center text-gray-600 mt-8"
           >
-            No projects found for this category.
-          </motion.p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-20 w-20 text-gray-400 mb-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 10h11M9 21V3m6 4h6M6 14l-4-4m0 0l4-4m-4 4h14"
+              />
+            </svg>
+            <p className="text-2xl font-semibold mb-2 text-indigo-600">
+              No Projects Found
+            </p>
+            <p className="text-gray-500 text-lg max-w-md mx-auto leading-relaxed">
+              Try selecting a different category or check back later.
+            </p>
+
+          </motion.div>
         )}
+
       </div>
       {/* Modal */}
       <AnimatePresence>
