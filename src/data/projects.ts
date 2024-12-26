@@ -1,4 +1,9 @@
 import { Project } from "../types/project";
+import kalibro from "../assets/Kalibro-Audit-Tool.png";
+import hyperStore from "../assets/Hyper-Store.png";
+import weather from "../assets/Thunder-Weather-Finder.png";
+import digitalReminder from "../assets/Digital-Reminder.png";
+import hafizPortfolio from "../assets/Hafiz-Portfolio.png";
 
 export const projects: Project[] = [
   {
@@ -8,7 +13,7 @@ export const projects: Project[] = [
       "Comprehensive site audit tool for performance, security, and technical analysis.",
     fullDescription:
       "Kalibro is a full-stack web application designed to help businesses analyze their websites for performance, security, and technical optimization. It provides actionable insights using modern technologies like React, Flask, PostgreSQL, and AWS. The tool integrates with APIs like Google Lighthouse and Safe Browsing to deliver comprehensive reports, covering key areas such as SEO, accessibility, unused CSS/JS, SSL issues, and DNS health. With a user-friendly dashboard and real-time data processing, Kalibro empowers users to improve their online presence effectively.",
-    image: "/assets/Kalibro-Audit-Tool.png",
+    image: kalibro,
     technologies: [
       "React",
       "Flask",
@@ -53,7 +58,7 @@ export const projects: Project[] = [
       "An e-commerce platform built with React and Fake Store API for browsing, filtering, and managing products effortlessly.",
     fullDescription:
       "Hyper Store is a sleek and responsive e-commerce web application designed to provide a seamless shopping experience. Built with React, TypeScript, and BootStrap, it integrates the Fake Store API to fetch dynamic product data in real-time. Users can browse through products, apply filters for categories and pricing, and manage their shopping carts. The application employs modern UI/UX principles for easy navigation and interaction, making it ideal for learning and showcasing e-commerce functionalities.",
-    image: "/assets/Hyper-Store.png",
+    image: hyperStore,
     technologies: [
       "React",
       "TypeScript",
@@ -91,7 +96,7 @@ export const projects: Project[] = [
       "A responsive weather application providing real-time weather updates using AccuWeather API and Bootstrap.",
     fullDescription:
       "Thunder Weather is a sleek and intuitive weather application that leverages the AccuWeather API to fetch real-time weather updates for cities around the globe. Built with React and styled using Bootstrap, the app offers a clean user interface and dynamic search functionality. Users can quickly view current weather conditions, temperature, humidity, wind speed, and more. The application is optimized for all devices, ensuring a seamless experience on both desktop and mobile screens.",
-    image: "/assets/Thunder-Weather-Finder.png",
+    image: weather,
     technologies: ["React", "Bootstrap", "AccuWeather API", "GitHub"],
     features: [
       "Real-time weather updates using AccuWeather API",
@@ -123,7 +128,7 @@ export const projects: Project[] = [
       "A sleek and efficient to-do application built with React and TypeScript, designed to manage tasks effortlessly.",
     fullDescription:
       "Digital Reminder is a user-friendly to-do application developed with React and TypeScript, offering an intuitive interface for managing tasks. The app allows users to create, edit, delete, and mark tasks as completed, helping them stay organized. Styled with Bootstrap and Sass, it features a responsive design that works seamlessly across all devices. Whether you're tracking daily errands or long-term goals, Digital Reminder ensures an efficient task management experience.",
-    image: "/assets/Digital-Reminder.png",
+    image: digitalReminder,
     technologies: ["React", "TypeScript", "Bootstrap", "Sass", "Netlify"],
     features: [
       "Add, edit, and delete tasks in real-time",
@@ -155,7 +160,7 @@ export const projects: Project[] = [
       "A modern portfolio website showcasing my skills, projects, and experience as a Full Stack Developer.",
     fullDescription:
       "Portfolio Hafiz is a responsive and visually appealing portfolio website developed with React, TypeScript, and styled using TailwindCSS. It serves as a comprehensive showcase of my professional journey, featuring my skills, projects, experience, and contact information. Designed to provide a smooth user experience, the portfolio highlights my technical expertise and creativity, while being fully responsive across all devices. The website is deployed on Netlify for seamless access.",
-    image: "/assets/Hafiz-Portfolio.png",
+    image: hafizPortfolio,
     technologies: ["React", "TypeScript", "TailwindCSS", "Netlify"],
     features: [
       "Interactive sections for skills, projects, and experience",

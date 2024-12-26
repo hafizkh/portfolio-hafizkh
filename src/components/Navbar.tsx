@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from "../../assets/logo.png";
+import logo from "../assets/logo.png";
 import { navItems, socialLinks } from '../data/socialIcons';
 import { useLocation } from 'react-router-dom';
 
