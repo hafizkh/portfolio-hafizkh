@@ -2,6 +2,7 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
 import hafizPic from "../assets/hafizpic.png"; // Ensure this is a transparent PNG image.
+import { socialLinks } from '../data/socialIcons';
 
 export default function Hero() {
   return (
@@ -51,15 +52,20 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.5 }}
             >
-              <a href="#" className="hover:text-indigo-400 transition-colors">
-                <Github size={24} />
-              </a>
-              <a href="#" className="hover:text-indigo-400 transition-colors">
-                <Linkedin size={24} />
-              </a>
-              <a href="#" className="hover:text-indigo-400 transition-colors">
-                <Mail size={24} />
-              </a>
+              {
+                socialLinks.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    target="_blank"
+                    className="text-2xl md:text-3xl hover:text-indigo-100
+                  transition-colors transform hover:scale-105"
+                    aria-label={link.label}
+                  >
+                    {link.icon}
+                  </a>
+                ))
+              }
             </motion.div>
           </AnimatedSection>
 

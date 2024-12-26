@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import emailjs from 'emailjs-com';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -8,11 +10,32 @@ export default function Contact() {
     message: ''
   });
 
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log(formData);
+
+    toast.promise(
+      emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID, // Use import.meta.env
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // Use import.meta.env
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message
+        },
+        import.meta.env.VITE_EMAILJS_API_KEY // Use import.meta.env
+      ),
+      {
+        loading: 'Sending message...',
+        success: 'Message sent successfully!',
+        error: 'Failed to send the message. Please try again.',
+      }
+    );
+
+    setFormData({ name: '', email: '', message: '' }); // Reset the form
   };
+
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -32,15 +55,15 @@ export default function Contact() {
               <div className="space-y-6">
                 <div className="flex items-center">
                   <Mail className="w-6 h-6 mr-4" />
-                  <span>contact@example.com</span>
+                  <span>hafizjavid471@gmail.com</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="w-6 h-6 mr-4" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+358 4560 11488</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-6 h-6 mr-4" />
-                  <span>San Francisco, CA</span>
+                  <span>Hameenlinna, FI</span>
                 </div>
               </div>
             </div>
@@ -100,6 +123,18 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 5000,
+          style: {
+            borderRadius: '8px',
+            background: '#333',
+            color: '#fff',
+          },
+        }}
+      />
     </section>
   );
 }

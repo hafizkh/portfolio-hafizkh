@@ -2,16 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from "../assets/logo.png"
-import { NavLink } from 'react-router-dom';
+import logo from "../assets/logo.png";
+import { navItems, socialLinks } from '../data/socialIcons';
 
-const navItems = [
-  { name: 'Home', to: 'hero' },
-  { name: 'Skills', to: 'skills' },
-  { name: 'Projects', to: 'projects' },
-  { name: 'Experience', to: 'experience' },
-  { name: 'Contact', to: 'contact' },
-];
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,34 +15,49 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 1);
     };
+
+    if (isOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isOpen]);
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`pt-4 fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg text-gray-800' : 'bg-transparent'
+      className={`pt-4 fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-gray-100 backdrop-blur-md shadow-lg text-gray-800' : 'bg-transparent'
         }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className={`font-bold text-xl ${scrolled ? 'text-indigo-600' : 'text-white'}`}
-          >
-            <div>
-              <Link to="#projects"
-                className="flex items-center space-x-2 group"
-              >
-                <img src={logo} alt=""
-                  className="h-18 w-20 rounded-full border-2  group-hover:scale-110 transform transition duration-300 pt-2"
-                />
-              </Link>
-            </div>
-          </motion.div>
+          {/* Logo */}
+          <div>
+            <Link
+              to="hero"
+              spy={true}
+              smooth={true}
+              offset={-64}
+              duration={500}
+              className="flex items-center space-x-2 group cursor-pointer"
+            >
+              <img
+                src={logo}
+                alt="Logo"
+                className="h-16 w-16 rounded-full border-2 group-hover:scale-110 transform transition duration-300"
+              />
+              <span className=" font-bold text-xl tracking-widest hover:text-indigo-500  transition duration-300">
+                HJ
+              </span>
+            </Link>
+          </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
@@ -72,10 +81,9 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-md ${scrolled ? 'text-gray-800' : 'text-white'
-                }`}
+              className="p-2 rounded-md"
             >
-              {isOpen ? <X /> : <Menu />}
+              {isOpen ? <X size={24} className="text-gray-800" /> : <Menu size={24} className="text-gray-800" />}
             </button>
           </div>
         </div>
@@ -84,26 +92,54 @@ export default function Navbar() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-gray-800/70 backdrop-blur-lg z-40"
             >
-              <div className="px-2 pt-2 pb-3 space-y-1">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    spy={true}
-                    smooth={true}
-                    offset={-64}
-                    duration={500}
-                    onClick={() => setIsOpen(false)}
-                    className="block px-3 py-2 text-gray-800 hover:text-indigo-500 transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+              <div className="relative bg-white rounded-md shadow-lg max-w-md mx-auto mt-20 px-6 py-4">
+                {/* Close Button */}
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="absolute top-4 right-4 p-2 text-gray-800 hover:text-indigo-500 transition"
+                >
+                  <X size={28} />
+                </button>
+
+                {/* Menu Items */}
+                <div className="flex flex-col space-y-4 mt-8">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      spy={true}
+                      smooth={true}
+                      offset={-64}
+                      duration={500}
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center space-x-3 px-3 py-2 rounded-md text-gray-800 hover:bg-gray-200 hover:text-indigo-500 transition cursor-pointer"
+                    >
+                      <span className="text-indigo-500">{item.icon}</span>
+                      <span>{item.name}</span>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Social Media Icons */}
+                <div className="mt-6 border-t border-gray-300 pt-4 flex justify-evenly">
+                  {socialLinks.map((link, index) => (
+                    <a
+                      key={index}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-800 hover:text-indigo-400 transition"
+                      aria-label={link.label}
+                    >
+                      {link.icon}
+                    </a>
+                  ))}
+                </div>
               </div>
             </motion.div>
           )}
