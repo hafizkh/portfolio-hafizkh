@@ -1,43 +1,10 @@
 import React from 'react';
 import { Briefcase, Calendar } from 'lucide-react';
+import { experiences } from '../data/experience';
 
-const experiences = [
-  {
-    company: "Tech Innovators Inc.",
-    position: "Senior Full Stack Developer",
-    period: "2021 - Present",
-    description: "Led development of enterprise-scale applications, mentored junior developers, and implemented CI/CD pipelines.",
-    achievements: [
-      "Reduced application load time by 40%",
-      "Implemented microservices architecture",
-      "Led team of 5 developers"
-    ]
-  },
-  {
-    company: "Digital Solutions Ltd.",
-    position: "Full Stack Developer",
-    period: "2019 - 2021",
-    description: "Developed and maintained multiple client projects using React and Node.js.",
-    achievements: [
-      "Delivered 15+ successful projects",
-      "Improved code coverage to 95%",
-      "Introduced automated testing"
-    ]
-  },
-  {
-    company: "StartUp Hub",
-    position: "Junior Developer",
-    period: "2018 - 2019",
-    description: "Worked on frontend development and collaborated with UX team.",
-    achievements: [
-      "Developed responsive UI components",
-      "Reduced bug reports by 30%",
-      "Contributed to core feature development"
-    ]
-  }
-];
 
-export default function Experience() {
+
+function Experience() {
   return (
     <section id="experience" className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
@@ -77,3 +44,5 @@ export default function Experience() {
     </section>
   );
 }
+
+export default Experience

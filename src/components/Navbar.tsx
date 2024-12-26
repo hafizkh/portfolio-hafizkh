@@ -4,12 +4,18 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from "../assets/logo.png";
 import { navItems, socialLinks } from '../data/socialIcons';
+import { useLocation } from 'react-router-dom';
 
 
 
-export default function Navbar() {
+function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation()
+  const hideLogoProjectDetail = location.pathname.startsWith("/project/")
+  console.log(location.pathname)
+  console.log(logo)
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,27 +46,32 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div>
-            <Link
-              to="hero"
-              spy={true}
-              smooth={true}
-              offset={-64}
-              duration={500}
-              className="flex items-center space-x-2 group cursor-pointer"
-            >
-              <img
-                src={logo}
-                alt="Logo"
-                className="h-16 w-16 rounded-full border-2 group-hover:scale-110 transform transition duration-300"
-              />
-              <span className=" font-bold text-xl tracking-widest hover:text-indigo-500  transition duration-300">
-                HJ
-              </span>
-            </Link>
+            {
+              !hideLogoProjectDetail && (
+                <Link
+                  to="hero"
+                  spy={true}
+                  smooth={true}
+                  offset={-64}
+                  duration={500}
+                  className="flex items-center space-x-2 group cursor-pointer"
+                >
+                  <img
+                    src={logo}
+                    alt="Logo"
+                    className="h-16 w-16 rounded-full border-2 group-hover:scale-110 transform transition duration-300"
+                  />
+                  <span className=" font-bold text-xl tracking-widest hover:text-indigo-500  transition duration-300">
+                    HJ
+                  </span>
+                </Link>
+              )
+            }
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
+
             {navItems.map((item) => (
               <Link
                 key={item.to}
@@ -75,6 +86,7 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -148,3 +160,5 @@ export default function Navbar() {
     </motion.nav>
   );
 }
+
+export default Navbar

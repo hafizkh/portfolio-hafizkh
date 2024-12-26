@@ -1,4 +1,9 @@
-export type ProjectCategory = 'all' | 'frontend' | 'fullstack' | 'cloud' | 'mobile';
+export type ProjectCategory =
+  | "all"
+  | "frontend"
+  | "fullstack"
+  | "cloud"
+  | "PowerPlatform";
 
 export interface Project {
   id: string;
@@ -13,4 +18,18 @@ export interface Project {
   liveLink: string;
   githubLink: string;
   category: ProjectCategory;
+}
+
+export interface ProjectFilterProps {
+  activeFilter: ProjectCategory;
+  onFilterChange: (filter: ProjectCategory) => void;
+}
+
+export interface ProjectCardProps {
+  project: Project;
+  onOpenModal: () => void;
+}
+
+export interface ProjectDetailsProps {
+  project?: Project; // Optional prop for modal usage
 }

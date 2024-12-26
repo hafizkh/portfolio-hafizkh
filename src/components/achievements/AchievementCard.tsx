@@ -9,13 +9,13 @@ interface AchievementCardProps {
   date?: string;
 }
 
-export default function AchievementCard({ icon, title, description, date }: AchievementCardProps) {
+function AchievementCard({ icon, title, description, date }: AchievementCardProps) {
   return (
     <motion.div
       className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
       whileHover={{ y: -10, scale: 1.02 }}
     >
-      <motion.div 
+      <motion.div
         className="mb-6 flex justify-center"
         whileHover={{ rotate: 360 }}
         transition={{ duration: 0.5 }}
@@ -36,3 +36,5 @@ export default function AchievementCard({ icon, title, description, date }: Achi
     </motion.div>
   );
 }
+
+export default AchievementCard

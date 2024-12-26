@@ -28,8 +28,8 @@ export const projects: Project[] = [
       "Used event-driven architecture",
       "Implemented caching strategies",
     ],
-    liveLink: "www.google.com",
-    githubLink: "www.github.com/hafizkh",
+    liveLink: "https://www.kalibro.io",
+    githubLink: "https://www.github.com/hafizkh",
     category: "fullstack",
   },
   {

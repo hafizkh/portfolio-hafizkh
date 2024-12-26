@@ -1,14 +1,11 @@
 import React from 'react';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Project } from '../../types/project';
+import { ProjectCardProps } from '../../types/project';
 
-interface ProjectCardProps {
-  project: Project;
-}
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenModal }) => {
   return (
     <motion.div
       className="bg-white-100 shadow-lg rounded-xl overflow-hidden group hover:shadow-2xl transition-all duration-300"
@@ -25,6 +22,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <div className="flex gap-4">
               <motion.a
                 href={project.liveLink}
+                target="_blank"
+                rel='noopener noreferrer'
                 className="flex items-center bg-indigo-600 px-3 py-2 rounded-lg hover:bg-indigo-700"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -34,6 +33,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               </motion.a>
               <motion.a
                 href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center bg-gray-800 px-3 py-2 rounded-lg hover:bg-gray-900"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -59,13 +60,16 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             </motion.span>
           ))}
         </div>
-        <Link
-          to={`/project/${project.id}`}
+        <button
+          onClick={onOpenModal}
           className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors"
         >
           Read More <ArrowRight className="w-4 h-4 ml-1" />
-        </Link>
+        </button>
+
       </div>
     </motion.div>
   );
 }
+
+export default ProjectCard
