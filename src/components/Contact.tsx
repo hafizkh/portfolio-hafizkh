@@ -124,7 +124,7 @@ function Contact() {
         </div>
       </div>
       <Toaster
-        position="top-center"
+        position="bottom-center"
         reverseOrder={false}
         toastOptions={{
           duration: 5000,
