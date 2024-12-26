@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
-import hafizPic from "../assets/hafizpic.png"; // Ensure this is a transparent PNG image.
+import hafizPic from "../assets/PicHafiz.jpg";
 import { socialLinks } from '../data/socialIcons';
 import { Link } from 'react-scroll';
 
