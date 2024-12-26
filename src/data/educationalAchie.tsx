@@ -15,7 +15,7 @@ export const educationAchievements = [
   },
   {
     icon: <BookOpen className="w-12 h-12 text-green-500" />,
-    title: "Microsoft Azure Fundamentals AZ 900",
+    title: "Microsoft Azure Fundamentals AZ-900",
     description: "Professional Certification",
     date: "2023",
   },
