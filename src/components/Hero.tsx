@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
-import hafizPic from "../assets/PicHafiz.jpg";
+import hafizPic from "../assets/pichafiz.png";
 import { socialLinks } from '../data/socialIcons';
 import { Link } from 'react-scroll';
 
@@ -87,22 +87,20 @@ function Hero() {
 
           {/* Right Section */}
           <AnimatedSection
-            className="lg:w-1/2 flex flex-col items-center"
+            className="lg:w-1/2 flex flex-col place-items-center"
           >
             <motion.div
-              className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96"
-              initial={{ scale: 0.8, opacity: 0.8 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
+            // className=" w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96"
+            // initial={{ scale: 0.8, opacity: 0.8 }}
+            // animate={{ scale: 1, opacity: 1 }}
+            // transition={{ duration: 0.5 }}
             >
               <img
-                className="w-full h-full object-contain transform hover:scale-105 transition-transform rounded-lg"
+                className="w-full h-96 object-contain transform hover:scale-105 transition-transform rounded-2xl"
                 src={hafizPic}
                 alt="Hafiz Picture"
-                style={{
-                  boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)",
-                  borderRadius: "10x",
-                }}
+
+
               />
             </motion.div>
             {/* <motion.a
