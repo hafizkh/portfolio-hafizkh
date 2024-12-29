@@ -33,3 +33,11 @@ export interface ProjectCardProps {
 export interface ProjectDetailsProps {
   project?: Project; // Optional prop for modal usage
 }
+
+export interface AchievementCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  majors?: string;
+  date?: string;
+}

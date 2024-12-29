@@ -24,8 +24,14 @@ function Experience() {
                   </div>
                 </div>
                 <div className="flex items-center text-indigo-600 mb-4">
-                  <Briefcase className="w-4 h-4 mr-2" />
-                  {exp.company}
+                  {/* <Briefcase className="w-4 h-4 mr-2" /> */}
+                  {/* Company Icon */}
+                  <img
+                    src={exp.icon}
+                    alt={`${exp.company} logo`}
+                    className="w-8 h-8 rounded-full mr-3"
+                  />
+                  <span className="font-medium">{exp.company}</span>
                 </div>
                 <p className="text-gray-600 mb-4">{exp.description}</p>
                 <ul className="space-y-2">

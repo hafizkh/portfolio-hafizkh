@@ -1,8 +1,13 @@
+import hamk from "../assets/HamkLogo.png";
+import calevala from "../assets/calevalaLogo.png";
+import integrify from "../assets/Integrify_logo.png";
+
 export const experiences = [
   {
     company: "Calevala Interactive Oy",
     position: "Application Developer",
     period: "Feb 2024 - Present",
+    icon: calevala,
     description:
       "Developing Kalibro, a site audit tool analyzing performance, security, and technical aspects for businesses.",
     achievements: [
@@ -16,6 +21,7 @@ export const experiences = [
     company: "Häme UAS",
     position: "Student Assistant",
     period: "August 2023 - May 2024",
+    icon: hamk,
     description:
       "Helped new students in Computer Applications to achieve their goals",
     achievements: [
@@ -28,6 +34,7 @@ export const experiences = [
     company: "Integrify Oy",
     position: "Full Stack Devloper Trainee ",
     period: "May 2022 - October 2022",
+    icon: integrify,
     description:
       "Worked on frontend, backend, AWS, and DevOps development and collaborated with UX team.",
     achievements: [

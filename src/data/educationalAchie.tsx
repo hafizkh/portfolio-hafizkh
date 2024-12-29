@@ -5,6 +5,7 @@ export const educationAchievements = [
     icon: <GraduationCap className="w-12 h-12 text-indigo-500" />,
     title: "DP in Computer Application",
     description: "Häme UAS",
+    majors: "Software Development & Cloud Computing",
     date: "2021 - 2024",
   },
   {
