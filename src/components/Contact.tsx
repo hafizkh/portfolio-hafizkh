@@ -35,8 +35,6 @@ function Contact() {
     setFormData({ name: '', email: '', message: '' }); // Reset the form
   };
 
-
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
@@ -45,7 +43,7 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-16">Get in Touch</h2>
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-12">

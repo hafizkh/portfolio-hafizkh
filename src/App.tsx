@@ -7,7 +7,6 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Achievements from './components/achievements/Achievements';
 import Contact from './components/Contact';
-import ProjectDetails from './components/projects/ProjectDetails';
 
 function HomePage() {
   return (
@@ -25,7 +24,7 @@ function HomePage() {
         <Experience />
       </section>
       <section id="achievements">
-        <Achievements />
+        {/* <Achievements /> */}
       </section>
       <section id="contact">
         <Contact />
@@ -41,7 +40,6 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/project/:id" element={<ProjectDetails />} />
         </Routes>
       </div>
     </Router>

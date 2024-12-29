@@ -1,6 +1,8 @@
 import React from 'react';
 import { Briefcase, Calendar } from 'lucide-react';
 import { experiences } from '../data/experience';
+import Education from './achievements/Education';
+import Achievements from './achievements/Achievements';
 
 
 
@@ -47,6 +49,7 @@ function Experience() {
           ))}
         </div>
       </div>
+      <Achievements />
     </section>
   );
 }

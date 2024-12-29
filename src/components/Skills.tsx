@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
-import { Code } from 'lucide-react';
 import { skills } from '../data/skillsData';
 
 
@@ -31,12 +30,14 @@ function Skills() {
                 <ul className="space-y-2">
                   {skill.technologies.map((tech) => (
                     <motion.li
-                      key={tech}
+                      key={tech.name}
                       className="flex items-center p-2 rounded-lg hover:bg-indigo-50 transition-colors"
                       whileHover={{ x: 5 }}
                     >
-                      <Code className="w-4 h-4 mr-2 text-indigo-500" />
-                      <span>{tech}</span>
+                      <div className="w-5 h-5 mr-3 flex items-center justify-center">
+                        {tech.icon}
+                      </div>
+                      <span>{tech.name}</span>
                     </motion.li>
                   ))}
                 </ul>

@@ -13,8 +13,6 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation()
   const hideLogoProjectDetail = location.pathname.startsWith("/project/")
-  console.log(location.pathname)
-  console.log(logo)
 
 
   useEffect(() => {
@@ -52,7 +50,7 @@ function Navbar() {
                   to="hero"
                   spy={true}
                   smooth={true}
-                  offset={-64}
+                  offset={-70}
                   duration={500}
                   className="flex items-center space-x-2 group cursor-pointer"
                 >
@@ -82,6 +80,7 @@ function Navbar() {
                 duration={500}
                 className={`cursor-pointer hover:text-indigo-500 transition-colors ${scrolled ? 'text-gray-800' : 'text-white'
                   }`}
+                activeClass='text-indigo-500 font-bold underline'
               >
                 {item.name}
               </Link>
@@ -109,6 +108,7 @@ function Navbar() {
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-gray-800/70 backdrop-blur-lg z-40"
             >
+
               <div className="relative bg-white rounded-md shadow-lg max-w-md mx-auto mt-20 px-6 py-4">
                 {/* Close Button */}
                 <button
@@ -130,6 +130,8 @@ function Navbar() {
                       duration={500}
                       onClick={() => setIsOpen(false)}
                       className="flex items-center space-x-3 px-3 py-2 rounded-md text-gray-800 hover:bg-gray-200 hover:text-indigo-500 transition cursor-pointer"
+                      activeClass='text-indigo-500 font-bold bg-gray-200'
+
                     >
                       <span className="text-indigo-500">{item.icon}</span>
                       <span>{item.name}</span>
