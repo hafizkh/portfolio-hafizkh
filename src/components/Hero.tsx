@@ -96,7 +96,7 @@ function Hero() {
             // transition={{ duration: 0.5 }}
             >
               <img
-                className="w-full h-96 object-contain transform hover:scale-105 transition-transform rounded-2xl"
+                className="w-96 h-96 object-contain transform hover:scale-105 transition-transform rounded-full"
                 src={hafizPic}
                 alt="Hafiz Picture"
 
