@@ -53,7 +53,7 @@ function Contact() {
               <div className="space-y-6">
                 <div className="flex items-center">
                   <Mail className="w-6 h-6 mr-4" />
-                  <span>hafizjavid471@gmail.com</span>
+                  <span>hafiz@hafizkh.dev</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="w-6 h-6 mr-4" />
