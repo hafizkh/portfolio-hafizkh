@@ -21,7 +21,7 @@ export const socialLinks: SocialLink[] = [
     label: "LinkedIn",
   },
   {
-    href: "mailto:hafizjavid471@gmail.com",
+    href: "mailto:hafiz@hafizkh.dev",
     icon: <Mail size={24} />,
     label: "Mail",
   },
