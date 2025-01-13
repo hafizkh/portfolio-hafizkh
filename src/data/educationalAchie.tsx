@@ -12,12 +12,14 @@ export const educationAchievements = [
     icon: <BookOpen className="w-12 h-12 text-green-500" />,
     title: "AWS Cloud Practitioner CLF-C01",
     description: "Professional Certification",
+    verification: "https://www.credly.com/badges/021b79dc-6c21-4275-8c6f-ae97449383ce/public_url",
     date: "2023",
   },
   {
     icon: <BookOpen className="w-12 h-12 text-green-500" />,
     title: "Microsoft Certified: Azure Fundamentals AZ-900",
     description: "Professional Certification",
+    verification: "https://www.credly.com/badges/6e2c8a8d-3473-401c-bc03-16b1f3df95b9/linked_in_profile",
     date: "2023",
   },
   {

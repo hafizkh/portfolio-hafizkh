@@ -39,5 +39,6 @@ export interface AchievementCardProps {
   title: string;
   description: string;
   majors?: string;
+  verification?: string;
   date?: string;
 }
