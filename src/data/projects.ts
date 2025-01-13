@@ -182,7 +182,7 @@ export const projects: Project[] = [
       "Deployed on Netlify with performance optimization for faster load times",
     ],
     liveLink: "https://hafizkh.dev/",
-    githubLink: "",
+    githubLink: "https://github.com/hafizkh/portfolio-hafizkh",
     category: "frontend",
   },
 ];
