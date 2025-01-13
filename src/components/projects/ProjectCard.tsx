@@ -45,7 +45,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenModal }) => {
                     Code
                   </motion.a>
                 ) : (
-                  <span className="text-gray-500 italic">Private Repository</span>
+                  <span className="flex items-center bg-gray-800 px-3 py-2 rounded-lg hover:bg-gray-900"><Github className="w-4 h-4 mr-1" /> Private Repository</span>
                 )
               }
 

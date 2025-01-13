@@ -4,6 +4,7 @@ import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 import { projects } from '../../data/projects';
 import AnimatedSection from '../AnimatedSection';
 import { ProjectDetailsProps } from '../../types/project';
+import { motion } from 'framer-motion';
 
 const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
   const { id } = useParams<{ id: string }>();
@@ -50,7 +51,24 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
                 <ExternalLink className="w-4 h-4 mr-2" />
                 View Live Demo
               </a>
-              <a
+              {
+                selectedProject.githubLink ? (
+                  <motion.a
+                    href={selectedProject.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center bg-gray-800 text-white px-5 py-2 rounded-lg hover:bg-gray-900 transition-colors text-sm sm:text-base w-full sm:w-auto"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Github className="w-4 h-4 mr-1" />
+                    Code
+                  </motion.a>
+                ) : (
+                  <span className="flex items-center bg-gray-300 px-3 py-2 rounded-lg hover:bg-gray-500"><Github className="w-4 h-4 mr-1" /> Private Repository</span>
+                )
+              }
+              {/* <a
                 href={selectedProject.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -58,7 +76,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
               >
                 <Github className="w-4 h-4 mr-2" />
                 View Source Code
-              </a>
+              </a> */}
             </div>
 
             {/* Grid Layout */}
