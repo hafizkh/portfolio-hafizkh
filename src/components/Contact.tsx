@@ -51,9 +51,11 @@ function Contact() {
             <div className="bg-indigo-900 text-white p-8 rounded-xl">
               <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
               <div className="space-y-6">
-                <div className="flex items-center">
+                <div className="flex items-center hover:underline">
                   <Mail className="w-6 h-6 mr-4" />
-                  <span>hafiz@hafizkh.dev</span>
+                  <a href="mailto:hafiz@hafizkh.dev">
+                    hafiz@hafizkh.dev
+                  </a>
                 </div>
                 <div className="flex items-center">
                   <Phone className="w-6 h-6 mr-4" />
