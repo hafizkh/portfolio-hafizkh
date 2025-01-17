@@ -65,7 +65,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
                     Code
                   </motion.a>
                 ) : (
-                  <span className="flex items-center bg-gray-300 px-3 py-2 rounded-lg hover:bg-gray-500"><Github className="w-4 h-4 mr-1" /> Private Repository</span>
+                  <span className="inline-flex items-center justify-center bg-gray-300 px-3 py-2 rounded-lg hover:bg-gray-500" ><Github className="w-4 h-4 mr-1" /> Private Repository</span>
                 )
               }
             </div>

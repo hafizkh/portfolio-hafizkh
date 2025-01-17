@@ -20,17 +20,24 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenModal }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
           <div className="p-4 text-white">
             <div className="flex gap-4">
-              <motion.a
-                href={project.liveLink}
-                target="_blank"
-                rel='noopener noreferrer'
-                className="flex items-center bg-indigo-600 px-3 py-2 rounded-lg hover:bg-indigo-700"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ExternalLink className="w-4 h-4 mr-1" />
-                Live Demo
-              </motion.a>
+              {
+                project.liveLink ? (
+                  <motion.a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel='noopener noreferrer'
+                    className="flex items-center bg-indigo-600 px-3 py-2 rounded-lg hover:bg-indigo-700"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <ExternalLink className="w-4 h-4 mr-1" />
+                    Live Demo
+                  </motion.a>
+                ) : (
+                  <span className="flex items-center bg-indigo-600 px-3 py-2 rounded-lg hover:bg-indigo-700"> <ExternalLink className="w-4 h-4 mr-1" />Hosted on Private Server</span>
+                )
+              }
+
               {
                 project.githubLink ? (
                   <motion.a

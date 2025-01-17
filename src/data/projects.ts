@@ -4,6 +4,7 @@ import hyperStore from "../assets/Hyper-Store.png";
 import weather from "../assets/Thunder-Weather-Finder.png";
 import digitalReminder from "../assets/Digital-Reminder.png";
 import hafizPortfolio from "../assets/Hafiz-Portfolio.png";
+import restaurantImage from "../assets/school_restaurant_project.png";
 
 export const projects: Project[] = [
   {
@@ -184,5 +185,40 @@ export const projects: Project[] = [
     liveLink: "https://hafizkh.dev/",
     githubLink: "https://github.com/hafizkh/portfolio-hafizkh",
     category: "frontend",
+  },
+  {
+    id: "Mediterranean Restaurant - IL Marino",
+    title: "Restaurant Website",
+    description:
+      "A simple website for a restaurant, allowing users to view menu, place orders, reserve tables, and provide feedback.",
+    fullDescription:
+      "The Restaurant Website is a university project developed by a team of three members. It provides essential features for a restaurant's online presence, including menu viewing, online ordering, table reservations, and feedback submission. Built using HTML5, CSS3, PHP, MySQL, and Bootstrap 5, the website ensures a responsive and user-friendly experience. The backend is powered by PHP and MySQL, where all user and order data is securely stored. Admins can manage the database using CRUD operations, making it easy to update menu items, orders, and feedback.",
+    image: restaurantImage,
+    technologies: ["HTML5", "CSS3", "PHP", "MySQL", "Bootstrap 5"],
+    features: [
+      "Dynamic menu display fetched from the database",
+      "Online ordering with cash or card payment options",
+      "Table reservation system for hassle-free dining",
+      "Feedback and suggestion submission by users",
+      "Admin panel for managing menu, orders, and feedback with CRUD operations",
+      "Responsive design using Bootstrap 5 for mobile, tablet, and desktop devices",
+    ],
+    challenges: [
+      "Designing a responsive and visually appealing interface",
+      "Implementing a functional backend to handle orders, reservations, and feedback",
+      "Ensuring secure and efficient storage of user and order data in the database",
+      "Managing CRUD operations for the admin panel",
+      "Coordinating tasks among team members as this was the first university project",
+    ],
+    solutions: [
+      "Used Bootstrap 5 to create a responsive and mobile-friendly design",
+      "Developed the backend using PHP to handle user requests and database interactions",
+      "Utilized MySQL for secure and efficient data storage",
+      "Implemented a simple and intuitive admin panel for managing the database",
+      "Divided tasks among team members to ensure smooth collaboration and timely completion of the project",
+    ],
+    liveLink: "",
+    githubLink: "https://github.com/hafizkh/Team14Web_IL_Marino/tree/main",
+    category: "fullstack",
   },
 ];
