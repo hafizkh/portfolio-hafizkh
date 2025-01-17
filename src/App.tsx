@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Achievements from './components/achievements/Achievements';
 import Contact from './components/Contact';
+import WhatsAppFloatingIcon from './components/WhatsAppIcon';
 
 function HomePage() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>
+        <WhatsAppFloatingIcon />
       </div>
     </Router>
   );

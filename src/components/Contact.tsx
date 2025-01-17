@@ -57,9 +57,9 @@ function Contact() {
                     hafiz@hafizkh.dev
                   </a>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center hover:underline">
                   <Phone className="w-6 h-6 mr-4" />
-                  <span>+358 4560 11488</span>
+                  <a href='tel:+358 4560 11488'>+358 4560 11488</a>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-6 h-6 mr-4" />
