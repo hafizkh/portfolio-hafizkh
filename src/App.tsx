@@ -1,13 +1,11 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
-import Achievements from './components/achievements/Achievements';
 import Contact from './components/Contact';
-import WhatsAppFloatingIcon from './components/WhatsAppIcon';
+import WhatsAppModalLauncher from './components/WhatsAppIcon';
 
 function HomePage() {
   return (
@@ -42,7 +40,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>
-        <WhatsAppFloatingIcon />
+        <WhatsAppModalLauncher />
       </div>
     </Router>
   );
