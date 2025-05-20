@@ -36,7 +36,8 @@ const WhatsAppModalLauncher: React.FC = () => {
             <button
                 type="button"
                 onClick={() => setIsOpen(true)}
-                className="fixed bottom-4 right-4 bg-gradient-to-r from-green-400 to-green-600 text-white p-4 rounded-full shadow-xl hover:shadow-2xl transition duration-300 focus:outline-none z-40"
+                className="fixed bottom-4 right-4 bg-gradient-to-r from-green-400 to-green-600 text-white p-4 rounded-full shadow-xl 
+               hover:scale-110 hover:shadow-2xl transition-transform duration-300 ease-in-out focus:outline-none z-40"
                 aria-label="Open WhatsApp modal"
             >
                 <svg
