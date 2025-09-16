@@ -3,6 +3,13 @@ import { Trophy, Star, Target, GraduationCap, BookOpen, Award } from "lucide-rea
 export const educationAchievements = [
   {
     icon: <GraduationCap className="w-12 h-12 text-indigo-500" />,
+    title: "Master in Computer Science",
+    description: "Tampere University",
+    majors: "Software, Web & Cloud",
+    date: "2025 - 2027",
+  },
+  {
+    icon: <GraduationCap className="w-12 h-12 text-indigo-500" />,
     title: "DP in Computer Application",
     description: "Häme UAS",
     majors: "Software Development & Cloud Computing",
