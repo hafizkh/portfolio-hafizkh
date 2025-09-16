@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion';
-import AnimatedSection from './AnimatedSection';
+import { motion } from "framer-motion";
+import AnimatedSection from "./AnimatedSection";
 import hafizPic from "../assets/pichafiz.png";
-import { socialLinks } from '../data/socialIcons';
-import { Link } from 'react-scroll';
+import { socialLinks } from "../data/socialIcons";
+import { Link } from "react-scroll";
 
 function Hero() {
   return (
@@ -68,27 +68,23 @@ function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.5 }}
             >
-              {
-                socialLinks.map((link, index) => (
-                  <a
-                    key={index}
-                    href={link.href}
-                    target="_blank"
-                    className="text-2xl md:text-3xl hover:text-indigo-100
+              {socialLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.href}
+                  target="_blank"
+                  className="text-2xl md:text-3xl hover:text-indigo-100
                   transition-colors transform hover:scale-105"
-                    aria-label={link.label}
-                  >
-                    {link.icon}
-                  </a>
-                ))
-              }
+                  aria-label={link.label}
+                >
+                  {link.icon}
+                </a>
+              ))}
             </motion.div>
           </AnimatedSection>
 
           {/* Right Section */}
-          <AnimatedSection
-            className="lg:w-1/2 flex flex-col place-items-center"
-          >
+          <AnimatedSection className="lg:w-1/2 flex flex-col place-items-center">
             <motion.div
             // className=" w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96"
             // initial={{ scale: 0.8, opacity: 0.8 }}
@@ -96,11 +92,15 @@ function Hero() {
             // transition={{ duration: 0.5 }}
             >
               <img
-                className="w-96 h-96 object-contain transform hover:scale-105 transition-transform rounded-full"
                 src={hafizPic}
-                alt="Hafiz Picture"
-
-
+                alt="Portrait of Hafiz Javid"
+                className="
+                  relative z-10
+                  w-64 h-64 md:w-80 md:h-80 lg:w-[26rem] lg:h-[26rem]
+                  rounded-full border-4 border-white shadow-2xl
+                  object-cover object-top   /* show face */
+                  hover:scale-[1.015] transition
+                "
               />
             </motion.div>
             {/* <motion.a
@@ -114,11 +114,10 @@ function Hero() {
               Resume <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2m-4-4l-4 4m0 0l-4-4m4 4V4' /></svg>
             </motion.a> */}
           </AnimatedSection>
-
         </div>
       </div>
     </section>
   );
 }
 
-export default Hero
+export default Hero;
