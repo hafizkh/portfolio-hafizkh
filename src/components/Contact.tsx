@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import emailjs from "emailjs-com";
 import toast, { Toaster } from "react-hot-toast";
@@ -11,6 +11,7 @@ function Contact() {
     message: "",
   });
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<any | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,7 +39,8 @@ function Contact() {
     );
 
     setFormData({ name: "", email: "", message: "" }); // Reset the form
-    setCaptchaToken(null); // Reset CAPTCHA
+    recaptchaRef.current?.reset(); // 👈 This clears the checkmark
+    recaptchaRef.current.reset();
   };
 
   const handleChange = (
@@ -131,6 +133,7 @@ function Contact() {
               </div>
               {/* CAPTCHA Placeholder */}
               <ReCAPTCHA
+                ref={recaptchaRef}
                 sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
                 onChange={setCaptchaToken}
               />
