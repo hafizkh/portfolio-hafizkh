@@ -1,19 +1,24 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import emailjs from 'emailjs-com';
-import toast, { Toaster } from 'react-hot-toast';
+import React, { useState } from "react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
+import emailjs from "emailjs-com";
+import toast, { Toaster } from "react-hot-toast";
+import ReCAPTCHA from "react-google-recaptcha";
 
 function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
-
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!captchaToken) {
+      toast.error("Please complete the CAPTCHA challenge.");
+      return;
+    }
     toast.promise(
       emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -21,24 +26,27 @@ function Contact() {
         {
           from_name: formData.name,
           from_email: formData.email,
-          message: formData.message
+          message: formData.message,
         },
         import.meta.env.VITE_EMAILJS_API_KEY
       ),
       {
-        loading: 'Sending message...',
-        success: 'Message sent successfully!',
-        error: 'Failed to send the message. Please try again.',
+        loading: "Sending message...",
+        success: "Message sent successfully!",
+        error: "Failed to send the message. Please try again.",
       }
     );
 
-    setFormData({ name: '', email: '', message: '' }); // Reset the form
+    setFormData({ name: "", email: "", message: "" }); // Reset the form
+    setCaptchaToken(null); // Reset CAPTCHA
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -49,13 +57,13 @@ function Contact() {
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-12">
           <div className="md:w-1/2">
             <div className="bg-indigo-900 text-white p-8 rounded-xl">
-              <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-semibold mb-6">
+                Contact Information
+              </h3>
               <div className="space-y-6">
                 <div className="flex items-center hover:underline">
                   <Mail className="w-6 h-6 mr-4" />
-                  <a href="mailto:hafiz@hafizkh.dev">
-                    hafiz@hafizkh.dev
-                  </a>
+                  <a href="mailto:hafiz@hafizkh.dev">hafiz@hafizkh.dev</a>
                 </div>
                 {/* <div className="flex items-center hover:underline">
                   <Phone className="w-6 h-6 mr-4" />
@@ -71,7 +79,10 @@ function Contact() {
           <div className="md:w-1/2">
             <form onSubmit={handleSubmit} className="space-y-6 mb-10">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Name
                 </label>
                 <input
@@ -85,7 +96,10 @@ function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Email
                 </label>
                 <input
@@ -99,7 +113,10 @@ function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Message
                 </label>
                 <textarea
@@ -112,6 +129,11 @@ function Contact() {
                   required
                 ></textarea>
               </div>
+              {/* CAPTCHA Placeholder */}
+              <ReCAPTCHA
+                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                onChange={setCaptchaToken}
+              />
               <button
                 type="submit"
                 className="w-full bg-indigo-600 text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center"
@@ -129,13 +151,13 @@ function Contact() {
         toastOptions={{
           duration: 5000,
           style: {
-            borderRadius: '8px',
-            background: '#333',
-            color: '#fff',
+            borderRadius: "8px",
+            background: "#333",
+            color: "#fff",
           },
         }}
       />
     </section>
   );
 }
-export default Contact
+export default Contact;
