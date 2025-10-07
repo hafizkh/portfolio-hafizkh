@@ -59,7 +59,7 @@ function Navbar() {
                   className="h-16 w-16 rounded-full border-2 group-hover:scale-110 transform transition duration-300"
                 />
                 <span className=" font-bold text-xl tracking-widest hover:text-indigo-500  transition duration-300">
-                  HJ
+                  {/* HJ */}
                 </span>
               </Link>
             )}
