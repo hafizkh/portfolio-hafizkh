@@ -6,7 +6,7 @@ export const experiences = [
   {
     company: "Calevala Interactive Oy",
     position: "Application Developer",
-    period: "Dec 2023 - Present",
+    period: "Dec 2023 - Sep 2025",
     icon: calevala,
     description:
       "Developing Kalibro, a site audit tool analyzing performance, security, and technical aspects for businesses.",
