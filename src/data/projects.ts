@@ -5,6 +5,8 @@ import weather from "../assets/Thunder-Weather-Finder.png";
 import digitalReminder from "../assets/Digital-Reminder.png";
 import hafizPortfolio from "../assets/Hafiz-Portfolio.png";
 import restaurantImage from "../assets/school_restaurant_project.png";
+import wazuhLab from "../assets/agent-list.png";
+import wazuhSyscollector from "../assets/network-topology.png"
 
 export const projects: Project[] = [
   {
@@ -221,4 +223,85 @@ export const projects: Project[] = [
     githubLink: "https://github.com/hafizkh/Team14Web_IL_Marino/tree/main",
     category: "fullstack",
   },
+  {
+  id: "wazuh-lab",
+  title: "Wazuh SIEM Lab",
+  description:
+    "Virtualized security lab with a Wazuh server and multiple agents, documented and published as a portfolio-ready project.",
+  fullDescription:
+    "A hands-on security lab that simulates a small enterprise network using Wazuh. It includes one Ubuntu 22.04 Wazuh server and multiple agent endpoints (Ubuntu 18.04, Ubuntu 22.04, Kali Linux) on a bridged network. The project focuses on deploying the server, registering agents via the dashboard wizard, verifying connectivity, and documenting the setup with real screenshots. The documentation is hosted via GitHub Pages for easy sharing.",
+  image: wazuhLab,
+  technologies: [
+    "Wazuh",
+    "Ubuntu",
+    "Kali Linux",
+    "VirtualBox",
+    "Linux",
+    "GitHub Pages"
+  ],
+  features: [
+    "Single-host virtual lab with Wazuh server and multiple agents",
+    "Bridged networking for realistic LAN communication",
+    "Agent deployment and status verification via Wazuh dashboard",
+    "Clean docs site with architecture diagram and screenshots",
+    "Reference agent configuration (`sample_ossec.conf`)"
+  ],
+  challenges: [
+    "Getting bridged networking to consistently assign reachable IPs",
+    "Ensuring agents register and stay connected to the manager",
+    "Handling self-signed HTTPS access to the dashboard",
+    "Structuring documentation for a professional portfolio presentation"
+  ],
+  solutions: [
+    "Standardized VM network settings with bridged adapters on the same subnet",
+    "Used the dashboard’s agent wizard and validated `ossec.conf` manager IP",
+    "Documented access via `https://<server-ip>` with certificate warning handling",
+    "Published a GitHub Pages site from `docs/` with real screenshots and topology"
+  ],
+  liveLink: "https://hafizkh.github.io/wazuh-lab-environment/",
+  githubLink: "https://github.com/hafizkh/wazuh-lab-environment",
+  category: "CyberSecurity",
+},
+{
+  id: "wazuh-syscollector",
+  title: "Wazuh Syscollector Inventory Monitoring",
+  description:
+    "Automated system inventory monitoring using Wazuh Syscollector across multiple agents.",
+  fullDescription:
+    "This project expands on the initial Wazuh SIEM Lab by enabling Syscollector to automatically collect system inventory data from connected agents. It demonstrates how Wazuh can be used not only for security monitoring but also for detailed asset and infrastructure visibility. The lab collects and visualizes hardware, software, network interfaces, and running processes, all centrally visible in the Wazuh dashboard. This project focuses on clean documentation, lab reproducibility, and practical security monitoring use cases.",
+  image: wazuhSyscollector,
+  technologies: [
+    "Wazuh",
+    "Syscollector",
+    "Ubuntu",
+    "Kali Linux",
+    "VirtualBox",
+    "Linux",
+    "GitHub Pages"
+  ],
+  features: [
+    "Automatic system inventory collection from agents",
+    "Centralized visualization in Wazuh dashboard",
+    "Hardware, software, and process data collection",
+    "Real lab environment with multiple OS agents",
+    "Detailed documentation with screenshots and configuration"
+  ],
+  challenges: [
+    "Ensuring consistent Syscollector data collection across different OS types",
+    "Configuring agent settings for stable data reporting",
+    "Interpreting inventory data in the Wazuh dashboard",
+    "Structuring the project for clear documentation and reuse"
+  ],
+  solutions: [
+    "Used default Syscollector configuration for seamless data collection",
+    "Verified agent connectivity and reporting intervals",
+    "Captured dashboard views for software, hardware, and network data",
+    "Published full documentation with reproducible steps via GitHub Pages"
+  ],
+  liveLink: "https://hafizkh.github.io/wazuh-syscollector-inventory/",
+  githubLink: "https://github.com/hafizkh/wazuh-syscollector-inventory",
+  category: "CyberSecurity",
+  },
+
+
 ];
