@@ -7,12 +7,12 @@ import hafizPortfolio from "../assets/Hafiz-Portfolio.png";
 import restaurantImage from "../assets/school_restaurant_project.png";
 import wazuhLab from "../assets/agent-list.png";
 import wazuhSyscollector from "../assets/network-topology.png"
-import syscollectorIntervals from "../assets/syscollector-intervals.png";
+// import syscollectorIntervals from "../assets/syscollector-intervals.png";
 
 export const projects: Project[] = [
   {
     id: "audit-tool",
-    title: "Kalibro — Site Audit & Trust Analysis Platform",
+    title: "Kalibro - Site Audit & Trust Analysis Platform",
     description:
       "Comprehensive site audit tool for performance, security, and technical analysis.",
     fullDescription:
@@ -303,44 +303,44 @@ export const projects: Project[] = [
   githubLink: "https://github.com/hafizkh/wazuh-syscollector-inventory",
   category: "CyberSecurity",
   },
-  {
-  id: "wazuh-syscollector-intervals",
-  title: "Wazuh System Inventory Scan Intervals",
-  description:
-    "Hands-on guide to tuning Syscollector scan frequency and validating results in the Wazuh dashboard.",
-  fullDescription:
-    "A focused, practical tutorial showing how to back up and edit the Wazuh agent config to customize Syscollector scan intervals, restart the agent safely to trigger scans, and verify fresh inventory data in the dashboard. Covers what Syscollector collects, interval units (s/m/h/d), listening-vs-all ports, and where each knob lives in ossec.conf. Includes before/after validation steps and screenshots so others can reproduce the exact setup.",
-  image: syscollectorIntervals,
-  technologies: [
-    "Wazuh",
-    "Syscollector",
-    "Ubuntu",
-    "VirtualBox",
-    "Linux",
-    "GitHub Pages"
-  ],
-  features: [
-    "Backup and edit agent config (`/var/ossec/etc/ossec.conf`)",
-    "Set precise scan intervals (e.g., 30m, 6h, 1d)",
-    "Safer trigger via agent restart instead of ultra-short intervals",
-    "Collect essentials only: hardware/OS/network/packages/processes",
-    "Choose listening-only vs all ports with `ports all=\"no|yes\"`",
-    "Validate updates in Wazuh dashboard (System + Detailed Inventory views)"
-  ],
-  challenges: [
-    "Balancing freshness of inventory with agent/system overhead",
-    "Making changes reproducible across different hosts and versions",
-    "Explaining the config options without overwhelming the reader"
-  ],
-  solutions: [
-    "Documented a minimal, safe baseline config and restart flow",
-    "Standardized steps with copy-pastable snippets and screenshots",
-    "Kept the scope tight: only the knobs most teams actually touch"
-  ],
-  liveLink: "https://github.com/hafizkh/Customizing-the-System-Inventory",            
-  githubLink: "",          
-  category: "CyberSecurity",
-},
+//   {
+//   id: "wazuh-syscollector-intervals",
+//   title: "Wazuh System Inventory Scan Intervals",
+//   description:
+//     "Hands-on guide to tuning Syscollector scan frequency and validating results in the Wazuh dashboard.",
+//   fullDescription:
+//     "A focused, practical tutorial showing how to back up and edit the Wazuh agent config to customize Syscollector scan intervals, restart the agent safely to trigger scans, and verify fresh inventory data in the dashboard. Covers what Syscollector collects, interval units (s/m/h/d), listening-vs-all ports, and where each knob lives in ossec.conf. Includes before/after validation steps and screenshots so others can reproduce the exact setup.",
+//   image: syscollectorIntervals,
+//   technologies: [
+//     "Wazuh",
+//     "Syscollector",
+//     "Ubuntu",
+//     "VirtualBox",
+//     "Linux",
+//     "GitHub Pages"
+//   ],
+//   features: [
+//     "Backup and edit agent config (`/var/ossec/etc/ossec.conf`)",
+//     "Set precise scan intervals (e.g., 30m, 6h, 1d)",
+//     "Safer trigger via agent restart instead of ultra-short intervals",
+//     "Collect essentials only: hardware/OS/network/packages/processes",
+//     "Choose listening-only vs all ports with `ports all=\"no|yes\"`",
+//     "Validate updates in Wazuh dashboard (System + Detailed Inventory views)"
+//   ],
+//   challenges: [
+//     "Balancing freshness of inventory with agent/system overhead",
+//     "Making changes reproducible across different hosts and versions",
+//     "Explaining the config options without overwhelming the reader"
+//   ],
+//   solutions: [
+//     "Documented a minimal, safe baseline config and restart flow",
+//     "Standardized steps with copy-pastable snippets and screenshots",
+//     "Kept the scope tight: only the knobs most teams actually touch"
+//   ],
+//   liveLink: "https://github.com/hafizkh/Customizing-the-System-Inventory",            
+//   githubLink: "",          
+//   category: "CyberSecurity",
+// },
 
 
 
