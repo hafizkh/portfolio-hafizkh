@@ -16,7 +16,7 @@ export const projects: Project[] = [
     description:
       "Comprehensive site audit tool for performance, security, and technical analysis.",
     fullDescription:
-    "The product reached a functional internal release and was later discontinued due to business reasons; the walkthrough video below demonstrates its full capabilities. Kalibro is a full-stack web application designed to help businesses analyze their websites for performance, security, and technical optimization. It provides actionable insights using modern technologies like React, Flask, PostgreSQL, and AWS. The tool integrates with APIs like Google Lighthouse and Safe Browsing to deliver comprehensive reports, covering key areas such as SEO, accessibility, unused CSS/JS, SSL issues, and DNS health. With a user-friendly dashboard and real-time data processing, Kalibro empowers users to improve their online presence effectively.",
+    "The product reached a functional internal release and was later discontinued due to business reasons; the walkthrough video below demonstrates its full capabilities. Kalibro is a full stack web application designed to help businesses analyze their websites for performance, security, and technical optimization. It provides actionable insights using modern technologies like React, Flask, PostgreSQL, and AWS. The tool integrates with APIs like Google Lighthouse and Safe Browsing to deliver comprehensive reports, covering key areas such as SEO, accessibility, unused CSS/JS, SSL issues, and DNS health. With a user-friendly dashboard and real-time data processing, Kalibro empowers users to improve their online presence effectively.",
     image: kalibro,
     technologies: [
       "React",
