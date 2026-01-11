@@ -5,7 +5,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
-import WhatsAppModalLauncher from './components/WhatsAppIcon';
+import TawkToChat from './components/WhatsAppIcon';
 
 function HomePage() {
   return (
@@ -40,7 +40,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>
-        <WhatsAppModalLauncher />
+        <TawkToChat />
       </div>
     </Router>
   );
