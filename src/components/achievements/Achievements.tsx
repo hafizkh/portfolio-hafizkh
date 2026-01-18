@@ -1,14 +1,18 @@
 import { motion } from 'framer-motion';
 import EducationCertifications from './EducationCertifications';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function Achievements() {
+  const { isDark } = useTheme();
+
   return (
     <section
       id="achievements"
       className="py-24 mt-12 relative"
       style={{
-        background:
-          'linear-gradient(180deg, rgba(26, 26, 46, 1) 0%, rgba(30, 20, 50, 1) 50%, rgba(26, 26, 46, 1) 100%)',
+        background: isDark
+          ? 'linear-gradient(180deg, rgba(26, 26, 46, 1) 0%, rgba(30, 20, 50, 1) 50%, rgba(26, 26, 46, 1) 100%)'
+          : 'linear-gradient(180deg, rgba(241, 245, 249, 1) 0%, rgba(248, 250, 252, 1) 50%, rgba(241, 245, 249, 1) 100%)',
       }}
     >
       <div className="container mx-auto px-4">
@@ -21,7 +25,9 @@ export default function Achievements() {
           transition={{ duration: 0.6 }}
         >
           <motion.span
-            className="inline-block px-4 py-2 rounded-full glass-card text-sm text-primary-400 mb-4"
+            className={`inline-block px-4 py-2 rounded-full glass-card text-sm mb-4 ${
+              isDark ? 'text-primary-400' : 'text-primary-600'
+            }`}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -32,7 +38,7 @@ export default function Achievements() {
           <h2 className="text-4xl md:text-5xl font-bold gradient-text">
             Education & Certifications
           </h2>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className={`mt-4 max-w-2xl mx-auto ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
             Academic achievements and professional certifications
           </p>
         </motion.div>
