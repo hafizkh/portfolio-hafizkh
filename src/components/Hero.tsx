@@ -1,121 +1,269 @@
-import { motion } from "framer-motion";
-import AnimatedSection from "./AnimatedSection";
-import hafizPic from "../assets/pichafiz.png";
-import { socialLinks } from "../data/socialIcons";
-import { Link } from "react-scroll";
+import { motion } from 'framer-motion';
+import hafizPic from '../assets/pichafiz.png';
+import { socialLinks } from '../data/socialIcons';
+import TypeWriter from './effects/TypeWriter';
+import MagneticButton from './effects/MagneticButton';
+import { useTheme } from '../context/ThemeContext';
+
+// Floating shapes component for background decoration
+const FloatingShapes = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <motion.div
+      className="absolute w-72 h-72 rounded-full opacity-20"
+      style={{
+        background: 'radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%)',
+        top: '10%',
+        left: '5%',
+      }}
+      animate={{
+        x: [0, 30, 0],
+        y: [0, -20, 0],
+        scale: [1, 1.1, 1],
+      }}
+      transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+    />
+    <motion.div
+      className="absolute w-64 h-64 rounded-full opacity-15"
+      style={{
+        background: 'radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, transparent 70%)',
+        top: '60%',
+        right: '10%',
+      }}
+      animate={{
+        x: [0, -20, 0],
+        y: [0, 30, 0],
+        scale: [1, 0.9, 1],
+      }}
+      transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+    />
+    <motion.div
+      className="absolute w-48 h-48 rounded-full opacity-10"
+      style={{
+        background: 'radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, transparent 70%)',
+        bottom: '20%',
+        left: '15%',
+      }}
+      animate={{
+        x: [0, 20, 0],
+        y: [0, -15, 0],
+      }}
+      transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
+    />
+  </div>
+);
 
 function Hero() {
+  const { isDark } = useTheme();
+
   return (
-    <section className="py-40 pt-30 flex items-center justify-center bg-gradient-to-br from-gray-200 to-gray-600 text-gray-800">
-      <div className="container">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
-          {/* Left Section */}
-          <AnimatedSection className="lg:w-1/2 text-center lg:text-left">
+    <section className="relative min-h-screen flex items-center justify-center py-20 pt-32 overflow-hidden">
+      <FloatingShapes />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16">
+          {/* Left Section - Content */}
+          <motion.div
+            className="lg:w-1/2 text-center lg:text-left"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            {/* Greeting Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6"
+            >
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Available for work</span>
+            </motion.div>
+
+            {/* Name with gradient */}
             <motion.h1
-              className="text-4xl md:text-6xl font-bold mb-6"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
             >
-              Hello, I'm Hafiz
+              <span className={isDark ? 'text-white' : 'text-gray-900'}>Hello, I'm </span>
+              <span className="gradient-text-animated">Hafiz</span>
             </motion.h1>
+
+            {/* Typing Effect Title */}
             <motion.h2
-              className="text-2xl md:text-4xl font-semibold mb-4 text-gray-800"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-            >
-              Full Stack Developer
-            </motion.h2>
-            <motion.p
-              className="text-lg md:text-xl mb-8 text-gray-200"
+              className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 h-12"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
+              transition={{ delay: 0.5 }}
             >
-              Passionate about building dynamic and user-friendly web solutions.
+              <TypeWriter
+                texts={[
+                  'Full Stack Developer',
+                  'React Specialist',
+                  'Backend Engineer',
+                  'Cloud Enthusiast',
+                ]}
+                className={isDark ? 'text-primary-400' : 'text-primary-600'}
+              />
+            </motion.h2>
+
+            {/* Description */}
+            <motion.p
+              className={`text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+            >
+              Passionate about building dynamic and user-friendly web solutions that make a
+              difference.
             </motion.p>
+
+            {/* CTA Buttons */}
             <motion.div
               className="flex flex-wrap gap-4 justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
+              transition={{ delay: 0.7 }}
             >
-              <Link
-                to="contact"
-                spy={true}
-                smooth={true}
-                offset={-64}
-                duration={500}
-                className="bg-indigo-500 hover:bg-indigo-600 px-6 py-3 font-semibold transition-colors rounded-full hover:bg-opacity-90 transform hover:scale-105 flex items-center gap-2 cursor-pointer text-white"
-              >
+              <MagneticButton to="contact" variant="primary">
                 Hire Me
-              </Link>
-              <Link
-                to="projects"
-                spy={true}
-                smooth={true}
-                offset={-64}
-                duration={500}
-                className="border border-white hover:bg-white/10 px-6 py-3 font-semibold transition-colors rounded-full hover:bg-opacity-90 transform hover:scale-105 flex items-center gap-2 cursor-pointer text-white"
-              >
+              </MagneticButton>
+              <MagneticButton to="projects" variant="outline">
                 View Projects
-              </Link>
+              </MagneticButton>
             </motion.div>
+
+            {/* Social Links */}
             <motion.div
-              className="flex gap-6 mt-8 justify-center lg:justify-start"
+              className="flex gap-6 mt-10 justify-center lg:justify-start"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
+              transition={{ delay: 0.9 }}
             >
               {socialLinks.map((link, index) => (
-                <a
+                <motion.a
                   key={index}
                   href={link.href}
                   target="_blank"
-                  className="text-2xl md:text-3xl hover:text-indigo-100
-                  transition-colors transform hover:scale-105"
+                  rel="noopener noreferrer"
+                  className={`text-2xl md:text-3xl transition-all duration-300 ${
+                    isDark ? 'text-gray-400 hover:text-primary-400' : 'text-gray-500 hover:text-primary-600'
+                  }`}
                   aria-label={link.label}
+                  whileHover={{ scale: 1.2, y: -3 }}
+                  whileTap={{ scale: 0.9 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.9 + index * 0.1 }}
                 >
                   {link.icon}
-                </a>
+                </motion.a>
               ))}
             </motion.div>
-          </AnimatedSection>
+          </motion.div>
 
-          {/* Right Section */}
-          <AnimatedSection className="lg:w-1/2 flex flex-col place-items-center">
-            <motion.div
-            // className=" w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96"
-            // initial={{ scale: 0.8, opacity: 0.8 }}
-            // animate={{ scale: 1, opacity: 1 }}
-            // transition={{ duration: 0.5 }}
-            >
-              <img
-                src={hafizPic}
-                alt="Portrait of Hafiz Javid"
-                className="
-                  relative z-10
-                  w-64 h-64 md:w-80 md:h-80 lg:w-[26rem] lg:h-[26rem]
-                  rounded-full border-4 border-white shadow-2xl
-                  object-cover object-top   /* show face */
-                  hover:scale-[1.015] transition
-                "
+          {/* Right Section - Profile Image */}
+          <motion.div
+            className="lg:w-1/2 flex justify-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <div className="relative">
+              {/* Animated glow ring */}
+              <motion.div
+                className="absolute -inset-4 rounded-full opacity-60"
+                style={{
+                  background:
+                    'linear-gradient(135deg, rgba(139, 92, 246, 0.5), rgba(6, 182, 212, 0.5), rgba(236, 72, 153, 0.5))',
+                  filter: 'blur(30px)',
+                }}
+                animate={{
+                  rotate: 360,
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{
+                  rotate: { duration: 10, repeat: Infinity, ease: 'linear' },
+                  scale: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
+                }}
               />
-            </motion.div>
-            {/* <motion.a
-              href="/Resume-Javid-Hafiz.pdf"
-              download
-              className="bg-indigo-500 hover:bg-indigo-600 px-6 py-3 font-semibold text-white transition-colors rounded-full hover:bg-opacity-90 transform hover:scale-105 flex items-center gap-2 cursor-pointer mt-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-            >
-              Resume <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2m-4-4l-4 4m0 0l-4-4m4 4V4' /></svg>
-            </motion.a> */}
-          </AnimatedSection>
+
+              {/* Rotating border */}
+              <motion.div
+                className="absolute -inset-1 rounded-full"
+                style={{
+                  background:
+                    'linear-gradient(135deg, #8b5cf6, #06b6d4, #ec4899, #8b5cf6)',
+                  padding: '3px',
+                }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+              >
+                <div className={`w-full h-full rounded-full ${isDark ? 'bg-dark-900' : 'bg-light-100'}`} />
+              </motion.div>
+
+              {/* Profile Image */}
+              <motion.img
+                src={hafizPic}
+                alt="Portrait of Hafiz"
+                className={`relative z-10 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover object-top border-4 ${
+                  isDark ? 'border-dark-800' : 'border-light-200'
+                }`}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              />
+
+              {/* Floating decoration elements */}
+              <motion.div
+                className="absolute -top-4 -right-4 w-12 h-12 rounded-xl glass-card flex items-center justify-center"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                <span className="text-2xl">🚀</span>
+              </motion.div>
+
+              <motion.div
+                className="absolute -bottom-2 -left-6 w-14 h-14 rounded-xl glass-card flex items-center justify-center"
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+              >
+                <span className="text-2xl">💻</span>
+              </motion.div>
+
+              <motion.div
+                className="absolute top-1/2 -right-8 w-10 h-10 rounded-lg glass-card flex items-center justify-center"
+                animate={{ x: [0, 5, 0], y: [0, -5, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+              >
+                <span className="text-lg">⚡</span>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.2 }}
+      >
+        <motion.div
+          className={`w-6 h-10 rounded-full border-2 flex justify-center pt-2 ${
+            isDark ? 'border-white/20' : 'border-gray-300'
+          }`}
+          animate={{ y: [0, 5, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+        >
+          <motion.div
+            className={`w-1 h-2 rounded-full ${isDark ? 'bg-primary-400' : 'bg-primary-500'}`}
+            animate={{ y: [0, 8, 0], opacity: [1, 0.5, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

@@ -1,65 +1,73 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { AchievementCardProps } from '../../types/project';
+import TiltCard from '../effects/TiltCard';
 
-function AchievementCard({ icon, title, description, date, verification, majors }: AchievementCardProps) {
+function AchievementCard({
+  icon,
+  title,
+  description,
+  date,
+  verification,
+  majors,
+}: AchievementCardProps) {
   return (
-    <motion.div
-      className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200"
-      whileHover={{ y: -10, scale: 1.03 }}
-    >
-      {/* Icon Section */}
+    <TiltCard tiltAmount={6}>
       <motion.div
-        className="flex justify-center items-center w-16 h-16 bg-gray-100 text-gray-700 rounded-full mb-6 shadow-sm"
-        whileHover={{ rotate: 360 }}
-        transition={{ duration: 0.8 }}
+        className="glass-card-hover p-6 h-full flex flex-col"
+        whileHover={{ y: -5 }}
+        transition={{ duration: 0.3 }}
       >
-        {icon}
-      </motion.div>
-
-      {/* Title */}
-      <h3 className="text-xl font-semibold text-center text-gray-800 mb-4">
-        {title}
-      </h3>
-
-      {/* Description */}
-      <p className="text-gray-600 text-center mb-4 leading-relaxed">
-        {description}
-      </p>
-
-      {/* Majors Section */}
-      {majors && (
-        <div className="bg-gray-50 py-3 px-6 rounded-lg shadow-sm text-gray-700 text-center mt-4 border border-gray-200">
-          <span className="font-semibold text-lg text-gray-800">Majors:</span>
-          <span className="block font-normal text-sm mt-1">{majors}</span>
-        </div>
-      )}
-
-      {/* Verification Link */}
-      {verification && (
-        <a
-          href={verification}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block mt-6 py-3 px-6 rounded-lg bg-blue-500 text-white text-center text-sm font-semibold shadow-md hover:shadow-lg hover:bg-blue-600 transition-all duration-300"
+        {/* Icon Section */}
+        <motion.div
+          className="flex justify-center items-center w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-cyan/20 text-primary-400 mb-5 mx-auto"
+          whileHover={{ rotate: 360, scale: 1.1 }}
+          transition={{ duration: 0.6 }}
         >
-          Verify Certification
-        </a>
-      )}
+          {icon}
+        </motion.div>
 
-      {/* Date */}
-      {date && (
-        <p className="text-sm text-gray-500 text-center mt-4">{date}</p>
-      )}
+        {/* Title */}
+        <h3 className="text-lg font-semibold text-center text-white mb-3">{title}</h3>
 
-      {/* Divider Line */}
-      <motion.div
-        className="w-20 h-1 bg-blue-500 mx-auto mt-6 rounded-full"
-        initial={{ width: 0 }}
-        whileInView={{ width: 80 }}
-        viewport={{ once: true }}
-      />
-    </motion.div>
+        {/* Description */}
+        <p className="text-gray-400 text-sm text-center mb-4 leading-relaxed flex-1">
+          {description}
+        </p>
+
+        {/* Majors Section */}
+        {majors && (
+          <div className="glass-card py-3 px-4 text-center mb-4">
+            <span className="font-medium text-primary-400 text-sm">Majors:</span>
+            <span className="block text-gray-300 text-xs mt-1">{majors}</span>
+          </div>
+        )}
+
+        {/* Verification Link */}
+        {verification && (
+          <motion.a
+            href={verification}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block py-2.5 px-4 rounded-lg bg-gradient-to-r from-primary-500 to-accent-cyan text-white text-center text-sm font-medium hover:shadow-glow transition-all"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Verify Certification
+          </motion.a>
+        )}
+
+        {/* Date */}
+        {date && <p className="text-xs text-gray-500 text-center mt-4">{date}</p>}
+
+        {/* Divider Line */}
+        <motion.div
+          className="w-16 h-0.5 bg-gradient-to-r from-primary-500 to-accent-cyan mx-auto mt-4 rounded-full"
+          initial={{ width: 0 }}
+          whileInView={{ width: 64 }}
+          viewport={{ once: true }}
+        />
+      </motion.div>
+    </TiltCard>
   );
 }
 
