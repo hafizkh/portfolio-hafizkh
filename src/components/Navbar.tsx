@@ -41,7 +41,7 @@ function Navbar() {
         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
         className={`pt-4 fixed w-full z-50 transition-all duration-500 ${
           scrolled
-            ? 'glass-card rounded-none border-t-0 border-x-0 shadow-lg shadow-purple-500/5'
+            ? 'glass-card rounded-none border-t-0 border-x-0 shadow-lg shadow-primary-500/5'
             : 'bg-transparent'
         }`}
       >
@@ -132,8 +132,8 @@ function Navbar() {
               className="absolute inset-0"
               style={{
                 background: isDark
-                  ? 'linear-gradient(180deg, rgba(139, 92, 246, 0.1) 0%, #0f0f23 30%, #0f0f23 100%)'
-                  : 'linear-gradient(180deg, rgba(139, 92, 246, 0.05) 0%, #f8fafc 30%, #f8fafc 100%)'
+                  ? 'linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, #0f0f23 30%, #0f0f23 100%)'
+                  : 'linear-gradient(180deg, rgba(99, 102, 241, 0.05) 0%, #f8fafc 30%, #f8fafc 100%)'
               }}
             />
 

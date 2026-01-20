@@ -13,7 +13,7 @@ export default function ThemeToggle() {
       style={{
         background: isDark
           ? 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)'
-          : 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+          : 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%)',
       }}
       whileTap={{ scale: 0.95 }}
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
@@ -23,8 +23,8 @@ export default function ThemeToggle() {
         className="absolute inset-0 rounded-full opacity-50"
         animate={{
           boxShadow: isDark
-            ? '0 0 20px rgba(139, 92, 246, 0.3)'
-            : '0 0 20px rgba(251, 191, 36, 0.5)',
+            ? '0 0 15px rgba(99, 102, 241, 0.3)'
+            : '0 0 15px rgba(99, 102, 241, 0.2)',
         }}
       />
 
@@ -33,7 +33,7 @@ export default function ThemeToggle() {
         className="relative w-5 h-5 rounded-full flex items-center justify-center"
         animate={{
           x: isDark ? 0 : 28,
-          backgroundColor: isDark ? '#8b5cf6' : '#ffffff',
+          backgroundColor: isDark ? '#818cf8' : '#ffffff',
         }}
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
       >

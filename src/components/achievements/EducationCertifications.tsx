@@ -41,7 +41,7 @@ export default function EducationCertifications() {
             onClick={() => setView(tab.key)}
             className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
               view === tab.key
-                ? 'bg-gradient-to-r from-primary-500 to-accent-cyan text-white shadow-glow'
+                ? 'bg-gradient-to-r from-primary-500 to-accent-violet text-white shadow-glow'
                 : `glass-card ${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} hover:border-primary-500/30`
             }`}
             whileHover={{ scale: 1.05, y: -2 }}

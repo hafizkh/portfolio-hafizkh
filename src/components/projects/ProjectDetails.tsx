@@ -3,19 +3,21 @@ import { ExternalLink, Github } from 'lucide-react';
 import { projects } from '../../data/projects';
 import { ProjectDetailsProps } from '../../types/project';
 import { motion } from 'framer-motion';
+import { useTheme } from '../../context/ThemeContext';
 
 const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
   const { id } = useParams<{ id: string }>();
+  const { isDark } = useTheme();
 
   // Use the provided project prop if available; otherwise, find it from projects
   const selectedProject = project || projects.find((p) => p.id === id);
 
   if (!selectedProject) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4 bg-dark-900">
+      <div className={`min-h-screen flex items-center justify-center px-4 ${isDark ? 'bg-dark-900' : 'bg-gray-50'}`}>
         <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4 text-white">Project not found</h2>
-          <Link to="/" className="text-primary-400 hover:text-primary-300">
+          <h2 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-800'}`}>Project not found</h2>
+          <Link to="/" className={`${isDark ? 'text-primary-400 hover:text-primary-300' : 'text-primary-600 hover:text-primary-500'}`}>
             Return to Home
           </Link>
         </div>
@@ -24,12 +26,12 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
   }
 
   return (
-    <div className={project ? '' : 'min-h-screen pt-10 bg-dark-900'}>
+    <div className={project ? '' : `min-h-screen pt-10 ${isDark ? 'bg-dark-900' : 'bg-gray-50'}`}>
       <div className="py-4">
         <div className="max-w-4xl mx-auto">
           {/* Title */}
           <motion.h1
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-white gradient-text"
+            className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 gradient-text ${isDark ? 'text-white' : 'text-gray-800'}`}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
           >
@@ -38,7 +40,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
 
           {/* Description */}
           <motion.p
-            className="text-sm sm:text-base text-gray-400 mb-8 leading-relaxed"
+            className={`text-sm sm:text-base mb-8 leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1 }}
@@ -86,7 +88,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
                 href={selectedProject.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-white/10 text-white px-5 py-2.5 rounded-lg hover:bg-white/20 transition-all text-sm font-medium"
+                className={`inline-flex items-center justify-center px-5 py-2.5 rounded-lg transition-all text-sm font-medium ${isDark ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -94,7 +96,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
                 View Code
               </motion.a>
             ) : (
-              <span className="inline-flex items-center justify-center bg-gray-700/50 text-gray-400 px-5 py-2.5 rounded-lg text-sm">
+              <span className={`inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm ${isDark ? 'bg-gray-700/50 text-gray-400' : 'bg-gray-200 text-gray-500'}`}>
                 <Github className="w-4 h-4 mr-2" />
                 Private Repository
               </span>
@@ -110,7 +112,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <h2 className="text-lg font-semibold mb-4 text-white flex items-center gap-2">
+              <h2 className={`text-lg font-semibold mb-4 flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-800'}`}>
                 <span className="w-2 h-2 bg-primary-500 rounded-full" />
                 Technologies Used
               </h2>
@@ -130,13 +132,13 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
             >
-              <h2 className="text-lg font-semibold mb-4 text-white flex items-center gap-2">
+              <h2 className={`text-lg font-semibold mb-4 flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-800'}`}>
                 <span className="w-2 h-2 bg-accent-cyan rounded-full" />
                 Key Features
               </h2>
               <ul className="space-y-2">
                 {selectedProject.features.map((feature) => (
-                  <li key={feature} className="text-gray-400 text-sm flex items-start gap-2">
+                  <li key={feature} className={`text-sm flex items-start gap-2 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                     <span className="text-primary-400 mt-1">•</span>
                     {feature}
                   </li>
@@ -154,13 +156,13 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <h2 className="text-lg font-semibold mb-4 text-white flex items-center gap-2">
+              <h2 className={`text-lg font-semibold mb-4 flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-800'}`}>
                 <span className="w-2 h-2 bg-accent-pink rounded-full" />
                 Challenges
               </h2>
               <ul className="space-y-2">
                 {selectedProject.challenges.map((challenge) => (
-                  <li key={challenge} className="text-gray-400 text-sm flex items-start gap-2">
+                  <li key={challenge} className={`text-sm flex items-start gap-2 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                     <span className="text-accent-pink mt-1">•</span>
                     {challenge}
                   </li>
@@ -175,13 +177,13 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
             >
-              <h2 className="text-lg font-semibold mb-4 text-white flex items-center gap-2">
+              <h2 className={`text-lg font-semibold mb-4 flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-800'}`}>
                 <span className="w-2 h-2 bg-green-400 rounded-full" />
                 Solutions
               </h2>
               <ul className="space-y-2">
                 {selectedProject.solutions.map((solution) => (
-                  <li key={solution} className="text-gray-400 text-sm flex items-start gap-2">
+                  <li key={solution} className={`text-sm flex items-start gap-2 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                     <span className="text-green-400 mt-1">•</span>
                     {solution}
                   </li>

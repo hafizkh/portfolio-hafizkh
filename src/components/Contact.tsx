@@ -262,7 +262,7 @@ function Contact() {
           },
           success: {
             iconTheme: {
-              primary: '#8b5cf6',
+              primary: '#6366f1',
               secondary: '#fff',
             },
           },

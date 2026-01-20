@@ -5,25 +5,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary gradient palette
+        // Primary - Indigo (professional, modern, works in both modes)
         primary: {
-          50: '#f5f3ff',
-          100: '#ede9fe',
-          200: '#ddd6fe',
-          300: '#c4b5fd',
-          400: '#a78bfa',
-          500: '#8b5cf6',
-          600: '#7c3aed',
-          700: '#6d28d9',
-          800: '#5b21b6',
-          900: '#4c1d95',
+          50: '#eef2ff',
+          100: '#e0e7ff',
+          200: '#c7d2fe',
+          300: '#a5b4fc',
+          400: '#818cf8',
+          500: '#6366f1',
+          600: '#4f46e5',
+          700: '#4338ca',
+          800: '#3730a3',
+          900: '#312e81',
         },
-        // Accent colors for gradients
+        // Accent colors
         accent: {
-          cyan: '#06b6d4',
-          blue: '#3b82f6',
-          purple: '#8b5cf6',
-          pink: '#ec4899',
+          violet: '#8b5cf6',
+          sky: '#0ea5e9',
+          slate: '#64748b',
+          rose: '#f43f5e',
         },
         // Dark mode base colors
         dark: {
@@ -70,8 +70,8 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         },
         'pulse-glow': {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(139, 92, 246, 0.5)' },
-          '50%': { boxShadow: '0 0 40px rgba(139, 92, 246, 0.8)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(99, 102, 241, 0.4)' },
+          '50%': { boxShadow: '0 0 40px rgba(99, 102, 241, 0.6)' },
         },
         'gradient-x': {
           '0%, 100%': { backgroundPosition: '0% 50%' },
@@ -104,11 +104,11 @@ export default {
         xs: '2px',
       },
       boxShadow: {
-        glow: '0 0 20px rgba(139, 92, 246, 0.35)',
-        'glow-lg': '0 0 40px rgba(139, 92, 246, 0.5)',
-        'glow-cyan': '0 0 20px rgba(6, 182, 212, 0.35)',
-        'glow-pink': '0 0 20px rgba(236, 72, 153, 0.35)',
-        'inner-glow': 'inset 0 0 20px rgba(139, 92, 246, 0.2)',
+        glow: '0 0 20px rgba(99, 102, 241, 0.25)',
+        'glow-lg': '0 0 40px rgba(99, 102, 241, 0.35)',
+        'glow-violet': '0 0 20px rgba(139, 92, 246, 0.25)',
+        'glow-sky': '0 0 20px rgba(14, 165, 233, 0.25)',
+        'inner-glow': 'inset 0 0 20px rgba(99, 102, 241, 0.15)',
         glass: '0 8px 32px rgba(0, 0, 0, 0.3)',
         'glass-light': '0 8px 32px rgba(0, 0, 0, 0.1)',
       },

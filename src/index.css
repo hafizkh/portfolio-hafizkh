@@ -56,12 +56,12 @@
   /* Firefox scrollbar */
   html.dark * {
     scrollbar-width: thin;
-    scrollbar-color: #7c3aed #1a1a2e;
+    scrollbar-color: #6366f1 #1a1a2e;
   }
 
   html.light * {
     scrollbar-width: thin;
-    scrollbar-color: #a78bfa #f1f5f9;
+    scrollbar-color: #818cf8 #f1f5f9;
   }
 }
 
@@ -99,7 +99,7 @@
 
   html.dark .glass-card-hover:hover {
     @apply border-primary-500/30;
-    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15);
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
     background: linear-gradient(
       135deg,
       rgba(255, 255, 255, 0.15) 0%,
@@ -119,23 +119,34 @@
   }
 
   html.light .glass-card-hover:hover {
-    @apply border-primary-300;
-    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.15);
+    @apply border-primary-400;
+    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.12);
     background: linear-gradient(
       135deg,
       rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 0.9) 100%
+      rgba(255, 255, 255, 0.95) 100%
     );
   }
 
-  /* Gradient text - works in both modes */
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 via-accent-cyan to-accent-pink;
+  /* Gradient text */
+  html.dark .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-accent-violet to-primary-400;
     background-size: 200% auto;
   }
 
-  .gradient-text-animated {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 via-accent-cyan to-accent-pink;
+  html.light .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 via-primary-500 to-accent-violet;
+    background-size: 200% auto;
+  }
+
+  html.dark .gradient-text-animated {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-accent-violet to-primary-400;
+    background-size: 200% auto;
+    animation: gradient-x 3s ease infinite;
+  }
+
+  html.light .gradient-text-animated {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 via-primary-500 to-accent-violet;
     background-size: 200% auto;
     animation: gradient-x 3s ease infinite;
   }
@@ -152,7 +163,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
     transition: width 0.3s ease;
   }
 
@@ -163,19 +174,19 @@
   /* Magnetic button base */
   .magnetic-btn {
     @apply relative overflow-hidden px-8 py-4 rounded-full font-semibold text-white;
-    background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+    background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
     transition: transform 0.2s ease, box-shadow 0.3s ease;
   }
 
   .magnetic-btn:hover {
-    box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
   }
 
   .magnetic-btn::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #06b6d4 0%, #ec4899 100%);
+    background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -198,7 +209,7 @@
 
   html.dark .btn-outline:hover {
     @apply border-primary-500/50 bg-white/5;
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
   }
 
   /* Outline button variant - Light */
@@ -209,8 +220,8 @@
   }
 
   html.light .btn-outline:hover {
-    @apply border-primary-500 bg-primary-50 text-primary-600;
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+    @apply border-primary-500 bg-primary-50 text-primary-700;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
   }
 
   /* Section gradient backgrounds - Dark */
@@ -258,7 +269,7 @@
   }
 
   html.dark .glow-input:focus {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
   }
 
   /* Glowing input - Light */
@@ -268,7 +279,7 @@
   }
 
   html.light .glow-input:focus {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
   }
 
   /* Tech tag - Dark */
@@ -278,17 +289,17 @@
   }
 
   html.dark .tech-tag:hover {
-    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
   }
 
   /* Tech tag - Light */
   html.light .tech-tag {
-    @apply px-3 py-1 bg-primary-100 text-primary-600 rounded-full text-sm border border-primary-200;
+    @apply px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm border border-primary-200;
     @apply hover:border-primary-400 hover:bg-primary-200 transition-all duration-300;
   }
 
   html.light .tech-tag:hover {
-    box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.15);
   }
 }
 
@@ -304,11 +315,11 @@
 
   /* Text shadow for glow effect */
   .text-glow {
-    text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+    text-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
   }
 
-  .text-glow-cyan {
-    text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+  .text-glow-violet {
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
   }
 
   /* Animation delays */
@@ -333,7 +344,7 @@ html.dark .cursor-glow {
   height: 400px;
   background: radial-gradient(
     circle,
-    rgba(139, 92, 246, 0.12) 0%,
+    rgba(99, 102, 241, 0.08) 0%,
     transparent 70%
   );
   transform: translate(-50%, -50%);

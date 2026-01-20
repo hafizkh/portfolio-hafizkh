@@ -39,7 +39,7 @@ export default function AnimatedBackground({
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div className={`absolute inset-0 ${isDark ? 'bg-dark-900' : 'bg-light-100'}`} />
         <motion.div
-          className={`absolute w-[500px] h-[500px] rounded-full filter blur-[100px] ${isDark ? 'bg-purple-500/30' : 'bg-purple-500/15'}`}
+          className={`absolute w-[500px] h-[500px] rounded-full filter blur-[100px] ${isDark ? 'bg-primary-500/30' : 'bg-primary-500/15'}`}
           animate={{
             x: [0, 100, 50, 0],
             y: [0, -50, 100, 0],
@@ -59,7 +59,7 @@ export default function AnimatedBackground({
           style={{ top: '20%', right: '-5%' }}
         />
         <motion.div
-          className={`absolute w-[450px] h-[450px] rounded-full filter blur-[100px] ${isDark ? 'bg-pink-500/20' : 'bg-pink-500/10'}`}
+          className={`absolute w-[450px] h-[450px] rounded-full filter blur-[100px] ${isDark ? 'bg-slate-500/20' : 'bg-slate-500/10'}`}
           animate={{
             x: [0, 60, -30, 0],
             y: [0, -60, 30, 0],
@@ -114,56 +114,56 @@ export default function AnimatedBackground({
     );
   }
 
-  // Default: mesh gradient
+  // Default: mesh gradient - professional, subtle
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
       <div className={`absolute inset-0 ${isDark ? 'bg-dark-900' : 'bg-light-100'}`} />
-      {/* Gradient orbs */}
+      {/* Gradient orbs - muted professional colors */}
       <div className="absolute inset-0">
         <motion.div
-          className={`absolute w-[600px] h-[600px] rounded-full ${isDark ? 'opacity-30' : 'opacity-20'}`}
+          className={`absolute w-[600px] h-[600px] rounded-full ${isDark ? 'opacity-20' : 'opacity-15'}`}
           style={{
             background: isDark
-              ? 'radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%)'
-              : 'radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%)',
+              ? 'radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%)'
+              : 'radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%)',
             top: '-20%',
             left: '-10%',
           }}
           animate={{
-            scale: [1, 1.2, 1],
-            opacity: isDark ? [0.2, 0.35, 0.2] : [0.15, 0.25, 0.15],
+            scale: [1, 1.1, 1],
+            opacity: isDark ? [0.15, 0.25, 0.15] : [0.1, 0.18, 0.1],
           }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className={`absolute w-[500px] h-[500px] rounded-full ${isDark ? 'opacity-30' : 'opacity-20'}`}
+          className={`absolute w-[500px] h-[500px] rounded-full ${isDark ? 'opacity-20' : 'opacity-15'}`}
           style={{
             background: isDark
-              ? 'radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, transparent 70%)'
-              : 'radial-gradient(circle, rgba(6, 182, 212, 0.25) 0%, transparent 70%)',
+              ? 'radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%)'
+              : 'radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%)',
             top: '30%',
             right: '-15%',
           }}
           animate={{
-            scale: [1, 1.15, 1],
-            opacity: isDark ? [0.25, 0.4, 0.25] : [0.15, 0.3, 0.15],
+            scale: [1, 1.08, 1],
+            opacity: isDark ? [0.18, 0.28, 0.18] : [0.1, 0.2, 0.1],
           }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
         <motion.div
-          className={`absolute w-[550px] h-[550px] rounded-full ${isDark ? 'opacity-20' : 'opacity-15'}`}
+          className={`absolute w-[550px] h-[550px] rounded-full ${isDark ? 'opacity-15' : 'opacity-10'}`}
           style={{
             background: isDark
-              ? 'radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, transparent 70%)'
-              : 'radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, transparent 70%)',
+              ? 'radial-gradient(circle, rgba(100, 116, 139, 0.2) 0%, transparent 70%)'
+              : 'radial-gradient(circle, rgba(100, 116, 139, 0.15) 0%, transparent 70%)',
             bottom: '-15%',
             left: '20%',
           }}
           animate={{
-            scale: [1, 1.1, 1],
-            opacity: isDark ? [0.15, 0.3, 0.15] : [0.1, 0.2, 0.1],
+            scale: [1, 1.05, 1],
+            opacity: isDark ? [0.1, 0.2, 0.1] : [0.08, 0.15, 0.08],
           }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
+          transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
         />
       </div>
       {/* Subtle grid pattern overlay */}

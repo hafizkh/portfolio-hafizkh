@@ -5,49 +5,49 @@ import TypeWriter from './effects/TypeWriter';
 import MagneticButton from './effects/MagneticButton';
 import { useTheme } from '../context/ThemeContext';
 
-// Floating shapes component for background decoration
+// Floating shapes component for background decoration - professional, subtle
 const FloatingShapes = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
     <motion.div
-      className="absolute w-72 h-72 rounded-full opacity-20"
+      className="absolute w-72 h-72 rounded-full opacity-15"
       style={{
-        background: 'radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%)',
         top: '10%',
         left: '5%',
       }}
       animate={{
-        x: [0, 30, 0],
-        y: [0, -20, 0],
-        scale: [1, 1.1, 1],
+        x: [0, 20, 0],
+        y: [0, -15, 0],
+        scale: [1, 1.05, 1],
       }}
-      transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+      transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
     />
     <motion.div
-      className="absolute w-64 h-64 rounded-full opacity-15"
+      className="absolute w-64 h-64 rounded-full opacity-12"
       style={{
-        background: 'radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%)',
         top: '60%',
         right: '10%',
       }}
       animate={{
-        x: [0, -20, 0],
-        y: [0, 30, 0],
-        scale: [1, 0.9, 1],
+        x: [0, -15, 0],
+        y: [0, 20, 0],
+        scale: [1, 0.95, 1],
       }}
-      transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+      transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
     />
     <motion.div
       className="absolute w-48 h-48 rounded-full opacity-10"
       style={{
-        background: 'radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(100, 116, 139, 0.2) 0%, transparent 70%)',
         bottom: '20%',
         left: '15%',
       }}
       animate={{
-        x: [0, 20, 0],
-        y: [0, -15, 0],
+        x: [0, 15, 0],
+        y: [0, -10, 0],
       }}
-      transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
+      transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
     />
   </div>
 );
@@ -171,34 +171,34 @@ function Hero() {
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <div className="relative">
-              {/* Animated glow ring */}
+              {/* Animated glow ring - subtle professional */}
               <motion.div
-                className="absolute -inset-4 rounded-full opacity-60"
+                className="absolute -inset-4 rounded-full opacity-40"
                 style={{
                   background:
-                    'linear-gradient(135deg, rgba(139, 92, 246, 0.5), rgba(6, 182, 212, 0.5), rgba(236, 72, 153, 0.5))',
+                    'linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(139, 92, 246, 0.3), rgba(99, 102, 241, 0.3))',
                   filter: 'blur(30px)',
                 }}
                 animate={{
                   rotate: 360,
-                  scale: [1, 1.05, 1],
+                  scale: [1, 1.03, 1],
                 }}
                 transition={{
-                  rotate: { duration: 10, repeat: Infinity, ease: 'linear' },
-                  scale: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
+                  rotate: { duration: 12, repeat: Infinity, ease: 'linear' },
+                  scale: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
                 }}
               />
 
-              {/* Rotating border */}
+              {/* Rotating border - professional blue gradient */}
               <motion.div
                 className="absolute -inset-1 rounded-full"
                 style={{
                   background:
-                    'linear-gradient(135deg, #8b5cf6, #06b6d4, #ec4899, #8b5cf6)',
+                    'linear-gradient(135deg, #4f46e5, #6366f1, #8b5cf6, #4f46e5)',
                   padding: '3px',
                 }}
                 animate={{ rotate: 360 }}
-                transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+                transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
               >
                 <div className={`w-full h-full rounded-full ${isDark ? 'bg-dark-900' : 'bg-light-100'}`} />
               </motion.div>

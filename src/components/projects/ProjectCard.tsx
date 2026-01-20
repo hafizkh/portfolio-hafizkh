@@ -2,8 +2,11 @@ import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ProjectCardProps } from '../../types/project';
 import TiltCard from '../effects/TiltCard';
+import { useTheme } from '../../context/ThemeContext';
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenModal }) => {
+  const { isDark } = useTheme();
+
   return (
     <TiltCard tiltAmount={6}>
       <motion.div
@@ -91,10 +94,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenModal }) => {
 
         {/* Content */}
         <div className="p-6 flex-1 flex flex-col">
-          <h3 className="text-xl font-semibold text-white group-hover:text-primary-400 transition-colors mb-2">
+          <h3 className={`text-xl font-semibold group-hover:text-primary-400 transition-colors mb-2 ${isDark ? 'text-white' : 'text-gray-800'}`}>
             {project.title}
           </h3>
-          <p className="text-gray-400 text-sm mb-4 flex-1 line-clamp-2">
+          <p className={`text-sm mb-4 flex-1 line-clamp-2 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
             {project.description}
           </p>
 
@@ -119,7 +122,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenModal }) => {
           {/* Read More Button */}
           <motion.button
             onClick={onOpenModal}
-            className="inline-flex items-center text-primary-400 hover:text-primary-300 transition-colors text-sm font-medium group/btn"
+            className={`inline-flex items-center transition-colors text-sm font-medium group/btn ${isDark ? 'text-primary-400 hover:text-primary-300' : 'text-primary-600 hover:text-primary-500'}`}
             whileHover={{ x: 5 }}
           >
             Read More
