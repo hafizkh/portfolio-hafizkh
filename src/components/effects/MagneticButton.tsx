@@ -10,6 +10,8 @@ interface MagneticButtonProps {
   to?: string; // For react-scroll
   strength?: number;
   variant?: 'primary' | 'outline';
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
 
 export default function MagneticButton({
@@ -20,6 +22,8 @@ export default function MagneticButton({
   to,
   strength = 0.3,
   variant = 'primary',
+  type,
+  disabled = false,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -91,6 +95,21 @@ export default function MagneticButton({
   }
 
   // Button
+  if (type) {
+    return (
+      <div
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="inline-block"
+      >
+        <button type={type} onClick={onClick} disabled={disabled} className="w-full">
+          {content}
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div
       ref={ref}

@@ -15,7 +15,7 @@ function Contact() {
   });
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
+  const recaptchaRef = useRef<InstanceType<typeof ReCAPTCHA> | null>(null);
   const { isDark } = useTheme();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -43,7 +43,8 @@ function Contact() {
       setFormData({ name: '', email: '', message: '' });
       recaptchaRef.current?.reset();
       setCaptchaToken(null);
-    } catch {
+    } catch (error) {
+      console.error('EmailJS Error:', error);
       toast.error('Failed to send the message. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -209,7 +210,8 @@ function Contact() {
               {/* Submit Button */}
               <div className="pt-2">
                 <MagneticButton
-                  onClick={() => {}}
+                  type="submit"
+                  disabled={isSubmitting}
                   className={`w-full ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
                   {isSubmitting ? (
