@@ -1,0 +1,14 @@
+# robots.txt for hafizkh.dev
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://hafizkh.dev/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Block common unwanted paths (if any)
+Disallow: /api/
+Disallow: /_
+Disallow: /admin/
