@@ -115,9 +115,7 @@ const ChatWidget: React.FC = () => {
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-primary-400" />
                   <span className="text-sm font-medium">
-                    <span className="dark:text-white text-gray-800">
-                      Hi! Need help or Want Collaborate?{" "}
-                    </span>
+                    <span className="dark:text-white text-gray-800">Hi! </span>
                     <span className="text-primary-400">
                       Chat with Me (Hafiz)
                     </span>
