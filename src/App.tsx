@@ -5,7 +5,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
-import TawkToChat from './components/WhatsAppIcon';
+import ChatWidget from './components/ChatWidget';
 import AnimatedBackground from './components/effects/AnimatedBackground';
 import CursorGlow from './components/effects/CursorGlow';
 import ScrollProgress from './components/effects/ScrollProgress';
@@ -45,7 +45,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
           </Routes>
-          <TawkToChat />
+          <ChatWidget />
         </div>
       </Router>
     </ThemeProvider>
