@@ -7,8 +7,13 @@ import hafizPortfolio from "../assets/Hafiz-Portfolio.png";
 import restaurantImage from "../assets/school_restaurant_project.png";
 import wazuhLab from "../assets/agent-list.png";
 import wazuhSyscollector from "../assets/network-topology.png"
-// import syscollectorIntervals from "../assets/syscollector-intervals.png";
-
+import wazuhSyscollectorIntervals from "../assets/system-inventory-dashboard.png";
+import wazuhFIM from "../assets/fim-dashboard-view.png";
+import wazuhFIMActiveResponse from "../assets/threat-hunting-dashboard.png";
+import wazuhFIMVirusTotal from "../assets/virustotal-threat-hunting.png";
+import wazuhThreatHunting from "../assets/intro-threat-hunting.png";
+import wazuhRuleOverrides from "../assets/rule-override-visual.png";
+import wazuhVulnerabilityDetection from "../assets/vulnerability-detection-dashboard.png";
 export const projects: Project[] = [
   {
     id: "audit-tool",
@@ -302,45 +307,279 @@ export const projects: Project[] = [
   liveLink: "https://hafizkh.github.io/wazuh-syscollector-inventory/",
   githubLink: "https://github.com/hafizkh/wazuh-syscollector-inventory",
   category: "CyberSecurity",
-  },
-//   {
-//   id: "wazuh-syscollector-intervals",
-//   title: "Wazuh System Inventory Scan Intervals",
-//   description:
-//     "Hands-on guide to tuning Syscollector scan frequency and validating results in the Wazuh dashboard.",
-//   fullDescription:
-//     "A focused, practical tutorial showing how to back up and edit the Wazuh agent config to customize Syscollector scan intervals, restart the agent safely to trigger scans, and verify fresh inventory data in the dashboard. Covers what Syscollector collects, interval units (s/m/h/d), listening-vs-all ports, and where each knob lives in ossec.conf. Includes before/after validation steps and screenshots so others can reproduce the exact setup.",
-//   image: syscollectorIntervals,
-//   technologies: [
-//     "Wazuh",
-//     "Syscollector",
-//     "Ubuntu",
-//     "VirtualBox",
-//     "Linux",
-//     "GitHub Pages"
-//   ],
-//   features: [
-//     "Backup and edit agent config (`/var/ossec/etc/ossec.conf`)",
-//     "Set precise scan intervals (e.g., 30m, 6h, 1d)",
-//     "Safer trigger via agent restart instead of ultra-short intervals",
-//     "Collect essentials only: hardware/OS/network/packages/processes",
-//     "Choose listening-only vs all ports with `ports all=\"no|yes\"`",
-//     "Validate updates in Wazuh dashboard (System + Detailed Inventory views)"
-//   ],
-//   challenges: [
-//     "Balancing freshness of inventory with agent/system overhead",
-//     "Making changes reproducible across different hosts and versions",
-//     "Explaining the config options without overwhelming the reader"
-//   ],
-//   solutions: [
-//     "Documented a minimal, safe baseline config and restart flow",
-//     "Standardized steps with copy-pastable snippets and screenshots",
-//     "Kept the scope tight: only the knobs most teams actually touch"
-//   ],
-//   liveLink: "https://github.com/hafizkh/Customizing-the-System-Inventory",            
-//   githubLink: "",          
-//   category: "CyberSecurity",
-// },
+},
+
+{
+  id: "wazuh-syscollector-intervals",
+  title: "Customising Wazuh Syscollector Scanning Intervals",
+  description:
+    "Practical configuration project demonstrating how to customize Syscollector scan intervals and inventory collection behavior in Wazuh agents.",
+  fullDescription:
+    "This project focuses on customizing Wazuh Syscollector behavior to control how often system inventory data is collected from endpoints. It walks through reviewing the default Syscollector configuration, adjusting scan intervals, enabling or disabling specific inventory modules, and safely applying changes through the Wazuh agent configuration file. The lab highlights real-world use cases such as reducing resource usage, improving asset visibility, and supporting vulnerability detection with accurate inventory data. Results are validated directly in the Wazuh dashboard using system inventory and detailed inventory views, with real screenshots and step-by-step documentation.",
+  image: wazuhSyscollectorIntervals,
+  technologies: [
+    "Wazuh",
+    "Syscollector",
+    "Ubuntu",
+    "Linux",
+    "Wazuh Dashboard",
+    "GitHub Pages"
+  ],
+  features: [
+    "Review and modification of default Syscollector configuration",
+    "Custom scan interval configuration (minutes, hours, days)",
+    "Selective inventory collection (hardware, packages, ports, processes)",
+    "Safe configuration workflow with backups and agent restarts",
+    "Verification using Wazuh dashboard system and detailed inventory views"
+  ],
+  challenges: [
+    "Understanding default Syscollector behavior and scan frequency",
+    "Balancing scan intervals with system resource usage",
+    "Ensuring configuration changes apply correctly across agents",
+    "Interpreting inventory data accurately in the dashboard"
+  ],
+  solutions: [
+    "Reviewed and documented the default syscollector wodle configuration",
+    "Used practical interval values instead of aggressive scan frequencies",
+    "Applied changes via ossec.conf with proper backups and agent restarts",
+    "Validated results through dashboard inventory panels with screenshots"
+  ],
+  liveLink: "https://hafizkh.github.io/Customizing-the-System-Inventory/",
+  githubLink: "https://github.com/hafizkh/Customizing-the-System-Inventory",
+  category: "CyberSecurity",
+},
+{
+  id: "wazuh-fim",
+  title: "Wazuh File Integrity Monitoring (FIM)",
+  description:
+    "Real-time file integrity monitoring using Wazuh to detect file creation, modification, and deletion on endpoints.",
+  fullDescription:
+    "This project demonstrates the implementation of File Integrity Monitoring (FIM) using Wazuh’s Syscheck module. It focuses on monitoring both critical system directories and a user-defined directory with real-time detection enabled. The setup tracks file creation, modification, and deletion events instantly, assigning rule IDs and severity levels that appear in the Wazuh dashboard. The project validates real-time monitoring by performing controlled file operations and observing immediate updates in both the dashboard and event logs. The documentation includes step-by-step configuration, screenshots, and practical testing scenarios.",
+  image: wazuhFIM,
+  technologies: [
+    "Wazuh",
+    "Syscheck (FIM)",
+    "Ubuntu",
+    "Linux",
+    "Wazuh Dashboard"
+  ],
+  features: [
+    "Real-time monitoring of user-defined directories",
+    "Detection of file creation, modification, and deletion",
+    "Configurable FIM rules via ossec.conf",
+    "Event logging with rule IDs and severity levels",
+    "Visual validation using dashboard and event views"
+  ],
+  challenges: [
+    "Understanding default FIM scan frequency and behavior",
+    "Configuring real-time monitoring without excessive resource usage",
+    "Ensuring events are correctly categorized and visible in the dashboard",
+    "Testing all file lifecycle events reliably"
+  ],
+  solutions: [
+    "Reviewed and documented the default Syscheck configuration",
+    "Enabled real-time monitoring using realtime=\"yes\" for selected directories",
+    "Restarted agents to safely apply configuration changes",
+    "Validated results using controlled file add, modify, and delete operations"
+  ],
+  liveLink: "https://hafizkh.github.io/File-Integrity-Monitoring/",
+  githubLink: "https://github.com/hafizkh/File-Integrity-Monitoring",
+  category: "CyberSecurity",
+},
+{
+  id: "wazuh-fim-active-response",
+  title: "Wazuh FIM + Active Response Automation",
+  description:
+    "Automated malware detection and removal using Wazuh FIM, VirusTotal integration, and Active Response.",
+  fullDescription:
+    "This project extends Wazuh File Integrity Monitoring by integrating VirusTotal and Active Response to enable automated threat mitigation. When FIM detects a new or modified file, its hash is sent to VirusTotal for reputation analysis. If the file is identified as malicious, a predefined Active Response rule triggers a custom script that automatically deletes the file on the endpoint. The workflow is tested using the EICAR test file and validated through the Wazuh dashboard’s Threat Hunting module. The project demonstrates how Wazuh can move beyond passive monitoring to real-time, automated incident response on both Linux and Windows agents.",
+  image: wazuhFIMActiveResponse,
+  technologies: [
+    "Wazuh",
+    "FIM",
+    "Linux",
+    "Windows",
+    "Active Response",
+    "VirusTotal",
+  ],
+  features: [
+    "Automatic malware detection using VirusTotal integration",
+    "Rule-based Active Response triggering",
+    "Custom response script for file removal",
+    "Real-time threat handling without manual intervention",
+    "Cross-platform support for Linux and Windows agents"
+  ],
+  challenges: [
+    "Coordinating FIM, VirusTotal, and Active Response workflows",
+    "Safely executing automated file deletion on endpoints",
+    "Testing malware response without introducing real threats",
+    "Ensuring accurate logging and visibility of automated actions"
+  ],
+  solutions: [
+    "Used VirusTotal integration to validate file reputation securely",
+    "Triggered Active Response using rule ID 87105",
+    "Implemented a controlled removal script with execution safeguards",
+    "Tested automation safely using the EICAR test file"
+  ],
+  liveLink: "https://hafizkh.github.io/FIM-Active-Response/",
+  githubLink: "https://github.com/hafizkh/FIM-Active-Response",
+  category: "CyberSecurity",
+},
+{
+  id: "wazuh-fim-virustotal",
+  title: "Wazuh FIM with VirusTotal Integration",
+  description:
+    "File reputation analysis using Wazuh File Integrity Monitoring and VirusTotal integration to identify malicious files.",
+  fullDescription:
+    "This project demonstrates how Wazuh File Integrity Monitoring (FIM) can be extended with VirusTotal integration to identify whether newly added or modified files are safe or malicious. When FIM detects a file change, its hash is automatically sent to VirusTotal, which checks it against multiple antivirus engines. The results, including detection count and file reputation, are displayed directly in the Wazuh dashboard. The setup is tested using the EICAR test file to safely simulate malware detection. This project focuses on practical threat detection, centralized visibility, and analyst-friendly validation.",
+  image: wazuhFIMVirusTotal,
+  technologies: [
+    "Wazuh Dashboard",
+    "VirusTotal",
+    "Linux",
+    "FIM",
+  ],
+  features: [
+    "Automatic file hash submission to VirusTotal",
+    "Reputation checks using multiple antivirus engines",
+    "Real-time visibility of malware detection results",
+    "Centralized threat analysis in the Wazuh dashboard",
+    "Safe testing using EICAR malware simulation"
+  ],
+  challenges: [
+    "Understanding how FIM and VirusTotal interact",
+    "Configuring API integration securely",
+    "Testing malware detection without real threats",
+    "Interpreting VirusTotal results in a SOC context"
+  ],
+  solutions: [
+    "Used VirusTotal API integration within Wazuh manager configuration",
+    "Monitored user download directories using real-time FIM",
+    "Validated detection using the EICAR test file",
+    "Analyzed results via Threat Hunting and dashboard views"
+  ],
+  liveLink: "https://hafizkh.github.io/FIM-VirusTotal-Integration/",
+  githubLink: "https://github.com/hafizkh/FIM-VirusTotal-Integration",
+  category: "CyberSecurity",
+},
+{
+  id: "wazuh-threat-hunting",
+  title: "Introduction to Threat Hunting with Wazuh",
+  description:
+    "Foundational threat hunting project focusing on proactive log analysis and investigation using Wazuh.",
+  fullDescription:
+    "This project introduces the principles of threat hunting and demonstrates how Wazuh supports proactive security investigations. Instead of relying solely on alerts, the project focuses on searching and analyzing centralized log data to uncover suspicious behavior. It covers the threat-hunting lifecycle, log centralization, the importance of log archives, and practical use of the Discover feature for exploratory analysis. The project also explains how Wazuh decoders transform raw logs into structured data, enabling effective query-based investigations across systems and sources.",
+  image: wazuhThreatHunting,
+  technologies: [
+    "Wazuh",
+    "Windows",
+    "Linux",
+    "Log Archives",
+  ],
+  features: [
+    "Centralized collection of security logs",
+    "Proactive threat hunting methodology",
+    "Log archive analysis beyond alert-based detection",
+    "Query-based investigation using Discover",
+    "Structured log parsing using decoders"
+  ],
+  challenges: [
+    "Shifting from reactive alerts to proactive investigation",
+    "Searching large volumes of unfiltered log data",
+    "Making sense of raw, unstructured logs",
+    "Forming effective threat-hunting hypotheses"
+  ],
+  solutions: [
+    "Applied a structured threat-hunting lifecycle",
+    "Used log archives to analyze non-alerted events",
+    "Leveraged Discover for flexible querying and filtering",
+    "Relied on Wazuh decoders to normalize log data"
+  ],
+  liveLink: "https://hafizkh.github.io/Introduction-to-Threat-Hunting/",
+  githubLink: "https://github.com/hafizkh/Introduction-to-Threat-Hunting",
+  category: "CyberSecurity",
+},
+{
+  id: "wazuh-rule-overrides",
+  title: "Modifying Default Wazuh Rules Safely",
+  description:
+    "Safe customization of Wazuh built-in detection rules to reduce alert noise while preserving security visibility.",
+  fullDescription:
+    "This project demonstrates how to safely override default Wazuh detection rules without modifying core rule files. It focuses on tuning alert severity to better match real-world environments by reducing unnecessary noise while retaining meaningful security signals. Two built-in PAM authentication rules are overridden using the overwrite mechanism, adjusting severity levels for session opened and failed login events. The changes are implemented in local_rules.xml and validated using wazuh-logtest to confirm correct behavior without generating live events.",
+  image: wazuhRuleOverrides,
+  technologies: [
+    "Wazuh",
+    "Rule Engine",
+    "Linux",
+    "wazuh-logtest"
+  ],
+  features: [
+    "Safe rule overriding without modifying core rule files",
+    "Custom severity tuning using overwrite=\"yes\"",
+    "Noise reduction for common authentication events",
+    "Clear separation of default and custom rules",
+    "Offline validation using wazuh-logtest"
+  ],
+  challenges: [
+    "Understanding how Wazuh rule precedence works",
+    "Avoiding accidental duplication of default rules",
+    "Ensuring overrides take effect as intended",
+    "Testing changes without producing real alerts"
+  ],
+  solutions: [
+    "Used local_rules.xml for controlled rule overrides",
+    "Applied overwrite=\"yes\" to explicitly replace default rules",
+    "Reduced severity levels based on real-world relevance",
+    "Verified changes using wazuh-logtest simulations"
+  ],
+  liveLink: "https://hafizkh.github.io/Modifying-Default-Rules/",
+  githubLink: "https://github.com/hafizkh/Modifying-Default-Rules",
+  category: "CyberSecurity",
+},
+{
+  id: "wazuh-vulnerability-detection",
+  title: "Wazuh Vulnerability Detection Overview",
+  description:
+    "Automated vulnerability detection using Wazuh Syscollector and CVE correlation.",
+  fullDescription:
+    "This project provides a comprehensive overview of Wazuh’s vulnerability detection workflow, focusing on how system inventory data is correlated with known CVEs. Using the Syscollector module, Wazuh builds a detailed inventory of installed operating systems, packages, and versions on each endpoint. The Vulnerability Detection module then compares this inventory against vulnerability feeds from Wazuh CTI to identify affected software. The project demonstrates how vulnerabilities are detected, tracked, resolved, and visualized through dashboards, inventory views, and event timelines.",
+  image: wazuhVulnerabilityDetection,
+  technologies: [
+    "Wazuh",
+    "Syscollector",
+    "Vulnerability Detection",
+    "CVE",
+    "Linux",
+    "Windows"
+  ],
+  features: [
+    "Automated software and OS inventory collection",
+    "CVE correlation using Wazuh CTI feeds",
+    "Continuous vulnerability status tracking",
+    "Detection of both new and resolved vulnerabilities",
+    "Dashboard, inventory, and event-based visibility"
+  ],
+  challenges: [
+    "Tracking vulnerabilities across many packages and versions",
+    "Understanding how CVE ranges apply to installed software",
+    "Verifying whether patching actually resolves vulnerabilities",
+    "Prioritizing remediation across multiple endpoints"
+  ],
+  solutions: [
+    "Used Syscollector to maintain accurate package inventories",
+    "Correlated package versions with CVE definitions automatically",
+    "Leveraged vulnerability inventory to track active vs solved issues",
+    "Used dashboard views to prioritize remediation efforts"
+  ],
+  liveLink: "https://hafizkh.github.io/Vulnerability-Detection-Overview/",
+  githubLink: "https://github.com/hafizkh/Vulnerability-Detection-Overview",
+  category: "CyberSecurity",
+}
+
+
+
+
+
 
 
 
