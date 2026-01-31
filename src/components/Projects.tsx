@@ -1,30 +1,31 @@
-import { useState } from 'react';
-import ProjectCard from './projects/ProjectCard';
-import ProjectFilter from './projects/ProjectFilter';
-import { projects } from '../data/projects';
-import { Project, ProjectCategory } from '../types/project';
-import { motion, AnimatePresence } from 'framer-motion';
-import ProjectDetails from './projects/ProjectDetails';
-import StaggerContainer, { staggerItem } from './effects/StaggerContainer';
-import { useTheme } from '../context/ThemeContext';
+import { useState } from "react";
+import ProjectCard from "./projects/ProjectCard";
+import ProjectFilter from "./projects/ProjectFilter";
+import { projects } from "../data/projects";
+import { Project, ProjectCategory } from "../types/project";
+import { motion, AnimatePresence } from "framer-motion";
+import ProjectDetails from "./projects/ProjectDetails";
+import StaggerContainer, { staggerItem } from "./effects/StaggerContainer";
+import { useTheme } from "../context/ThemeContext";
 
 function Projects() {
-  const [activeFilter, setActiveFilter] = useState<ProjectCategory>('all');
+  const [activeFilter, setActiveFilter] =
+    useState<ProjectCategory>("fullstack");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const { isDark } = useTheme();
 
   const handleOpenModal = (project: Project) => {
     setSelectedProject(project);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   const handleCloseModal = () => {
     setSelectedProject(null);
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
   };
 
   const filteredProjects = projects.filter(
-    (project) => activeFilter === 'all' || project.category === activeFilter
+    (project) => activeFilter === "all" || project.category === activeFilter,
   );
 
   return (
@@ -40,7 +41,7 @@ function Projects() {
         >
           <motion.span
             className={`inline-block px-4 py-2 rounded-full glass-card text-sm mb-4 ${
-              isDark ? 'text-primary-400' : 'text-primary-600'
+              isDark ? "text-primary-400" : "text-primary-600"
             }`}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -49,13 +50,20 @@ function Projects() {
           >
             My Work
           </motion.span>
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text">Featured Projects</h2>
-          <p className={`mt-4 max-w-2xl mx-auto ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+          <h2 className="text-4xl md:text-5xl font-bold gradient-text">
+            Featured Projects
+          </h2>
+          <p
+            className={`mt-4 max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}
+          >
             A showcase of my recent work and side projects
           </p>
         </motion.div>
 
-        <ProjectFilter activeFilter={activeFilter} onFilterChange={setActiveFilter} />
+        <ProjectFilter
+          activeFilter={activeFilter}
+          onFilterChange={setActiveFilter}
+        />
 
         <AnimatePresence mode="wait">
           <StaggerContainer
@@ -64,7 +72,10 @@ function Projects() {
           >
             {filteredProjects.map((project) => (
               <motion.div key={project.id} variants={staggerItem}>
-                <ProjectCard project={project} onOpenModal={() => handleOpenModal(project)} />
+                <ProjectCard
+                  project={project}
+                  onOpenModal={() => handleOpenModal(project)}
+                />
               </motion.div>
             ))}
           </StaggerContainer>
@@ -80,7 +91,7 @@ function Projects() {
             <div className="w-24 h-24 rounded-full glass-card flex items-center justify-center mb-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className={`h-12 w-12 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}
+                className={`h-12 w-12 ${isDark ? "text-gray-500" : "text-gray-400"}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -93,8 +104,14 @@ function Projects() {
                 />
               </svg>
             </div>
-            <p className={`text-2xl font-semibold mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>No Projects Found</p>
-            <p className={`text-lg max-w-md mx-auto ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
+            <p
+              className={`text-2xl font-semibold mb-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}
+            >
+              No Projects Found
+            </p>
+            <p
+              className={`text-lg max-w-md mx-auto ${isDark ? "text-gray-500" : "text-gray-500"}`}
+            >
               Try selecting a different category or check back later.
             </p>
           </motion.div>
@@ -107,7 +124,7 @@ function Projects() {
           <motion.div
             key="modal-backdrop"
             className={`fixed inset-0 z-50 backdrop-blur-md flex justify-center items-center px-4 sm:px-6 ${
-              isDark ? 'bg-dark-900/80' : 'bg-gray-900/50'
+              isDark ? "bg-dark-900/80" : "bg-gray-900/50"
             }`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -119,14 +136,16 @@ function Projects() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: 'spring', damping: 25 }}
+              transition={{ type: "spring", damping: 25 }}
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <motion.button
                 onClick={handleCloseModal}
                 className={`absolute top-4 right-4 w-10 h-10 rounded-full glass-card flex items-center justify-center transition-all z-50 ${
-                  isDark ? 'text-gray-400 hover:text-white hover:bg-white/10' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
+                  isDark
+                    ? "text-gray-400 hover:text-white hover:bg-white/10"
+                    : "text-gray-500 hover:text-gray-900 hover:bg-gray-100"
                 }`}
                 aria-label="Close Modal"
                 whileHover={{ scale: 1.1, rotate: 90 }}
