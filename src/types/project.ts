@@ -33,11 +33,6 @@ export interface SecurityLab {
   githubLink: string;
 }
 
-export interface LabCardProps {
-  lab: SecurityLab;
-  onOpenModal: () => void;
-}
-
 export interface ProjectFilterProps {
   activeFilter: ProjectCategory;
   onFilterChange: (filter: ProjectCategory) => void;
