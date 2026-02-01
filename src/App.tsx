@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import SecurityLabsSection from './components/SecurityLabs';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import ChatWidget from './components/ChatWidget';
@@ -22,6 +23,9 @@ function HomePage() {
       </section>
       <section id="projects">
         <Projects />
+      </section>
+      <section id="security-labs">
+        <SecurityLabsSection />
       </section>
       <section id="experience">
         <Experience />

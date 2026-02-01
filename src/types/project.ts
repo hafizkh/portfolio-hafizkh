@@ -2,8 +2,7 @@ export type ProjectCategory =
   | "all"
   | "frontend"
   | "fullstack"
-  | "cloud"
-  | "CyberSecurity";
+  | "cloud";
 
 export interface Project {
   id: string;
@@ -18,6 +17,25 @@ export interface Project {
   liveLink: string;
   githubLink: string;
   category: ProjectCategory;
+}
+
+export interface SecurityLab {
+  id: string;
+  title: string;
+  description: string;
+  fullDescription: string;
+  image: string;
+  technologies: string[];
+  features: string[];
+  challenges: string[];
+  solutions: string[];
+  liveLink: string;
+  githubLink: string;
+}
+
+export interface LabCardProps {
+  lab: SecurityLab;
+  onOpenModal: () => void;
 }
 
 export interface ProjectFilterProps {

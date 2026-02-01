@@ -1,10 +1,11 @@
 import { NavItem, SocialLink } from "../types/socialIcons";
-import { Home, Code, Briefcase, User, Mail, Github, Linkedin } from "lucide-react";
+import { Home, Code, Briefcase, Shield, User, Mail, Github, Linkedin } from "lucide-react";
 
 export const navItems: NavItem[] = [
   { name: "Home", to: "hero", icon: <Home /> },
   { name: "Skills", to: "skills", icon: <Code /> },
   { name: "Projects", to: "projects", icon: <Briefcase /> },
+  { name: "Wazuh Labs", to: "security-labs", icon: <Shield /> },
   { name: "Experience", to: "experience", icon: <User /> },
   { name: "Contact", to: "contact", icon: <Mail /> },
 ];
