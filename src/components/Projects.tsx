@@ -9,8 +9,7 @@ import StaggerContainer, { staggerItem } from "./effects/StaggerContainer";
 import { useTheme } from "../context/ThemeContext";
 
 function Projects() {
-  const [activeFilter, setActiveFilter] =
-    useState<ProjectCategory>("fullstack");
+  const [activeFilter, setActiveFilter] = useState<ProjectCategory>("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const { isDark } = useTheme();
 
