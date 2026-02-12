@@ -5,6 +5,7 @@ import weather from "../assets/Thunder-Weather-Finder.png";
 import digitalReminder from "../assets/Digital-Reminder.png";
 import hafizPortfolio from "../assets/Hafiz-Portfolio.png";
 import restaurantImage from "../assets/school_restaurant_project.png";
+import tictactoe from "../assets/tic-tac-toe.png";
 import wazuhLab from "../assets/agent-list.png";
 import wazuhSyscollector from "../assets/network-topology.png";
 import wazuhSyscollectorIntervals from "../assets/system-inventory-dashboard.png";
@@ -228,6 +229,52 @@ export const projects: Project[] = [
     liveLink: "",
     githubLink: "https://github.com/hafizkh/Team14Web_IL_Marino/tree/main",
     category: "fullstack",
+  },
+   {
+    id: "tic-tac-toe",
+    title: "Tic Tac Toe - AI-Powered Game",
+    description:
+      "A modern, responsive Tic Tac Toe game with unbeatable AI and local multiplayer.",
+    fullDescription:
+      "Tic Tac Toe is a sleek, fully-featured game built with React and Vite. It offers both single-player mode against an AI opponent with three difficulty levels (Easy, Hard, and Impossible) and a local two-player mode for playing with friends. The AI uses the minimax algorithm to provide an unbeatable challenge on the highest difficulty. The game features smooth animations, confetti celebrations on wins, score tracking across sessions, win streak counters, move history visualization, undo functionality, and a built-in game timer. The clean, modular codebase follows React best practices with custom hooks for state management and well-organized component architecture.",
+    image: tictactoe,
+    technologies: [
+      "React",
+      "Vite",
+      "JavaScript",
+      "CSS-in-JS",
+    ],
+    features: [
+      "Single-player mode with AI opponent",
+      "Three AI difficulty levels (Easy, Hard, Impossible)",
+      "Unbeatable AI using minimax algorithm",
+      "Local two-player multiplayer mode",
+      "Score tracking across multiple games",
+      "Win streak counter and badges",
+      "Move history visualization with dots",
+      "Undo functionality for taking back moves",       
+      "Built-in game timer",
+      "Smooth animations and confetti on win",
+      "Responsive design for all devices",
+    ],
+    challenges: [
+      "Implementing an unbeatable AI using the minimax algorithm",
+      "Managing complex game state across multiple phases",
+      "Creating smooth, performant animations without external libraries",
+      "Handling undo functionality for both single and multiplayer modes",
+      "Building a clean, maintainable component architecture",
+    ],
+    solutions: [
+      "Implemented minimax algorithm with optimized recursion for AI decision-making",
+      "Created a custom useGame hook to centralize all game state and logic",
+      "Used CSS keyframe animations for smooth, performant visual effects",
+      "Built intelligent undo system that handles AI moves in single-player mode",
+      "Organized codebase with separate folders for components, hooks, utils, and constants",
+      "Used barrel exports for clean imports throughout the application",
+    ],
+    liveLink: "https://tic-tac-toe-hafiz.netlify.app",
+    githubLink: "https://github.com/hafizkh/Tic-Tac-Toe",
+    category: "frontend",
   },
 ];
 
