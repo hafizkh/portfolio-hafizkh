@@ -2,7 +2,8 @@ export type ProjectCategory =
   | "all"
   | "frontend"
   | "fullstack"
-  | "cloud";
+  | "cloud"
+  | "security";
 
 export interface Project {
   id: string;

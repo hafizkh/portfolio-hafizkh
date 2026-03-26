@@ -6,6 +6,7 @@ import digitalReminder from "../assets/Digital-Reminder.png";
 import hafizPortfolio from "../assets/Hafiz-Portfolio.png";
 import restaurantImage from "../assets/school_restaurant_project.png";
 import tictactoe from "../assets/tic-tac-toe.png";
+import trustscan from "../assets/trustscan.png";
 import wazuhLab from "../assets/agent-list.png";
 import wazuhSyscollector from "../assets/network-topology.png";
 import wazuhSyscollectorIntervals from "../assets/system-inventory-dashboard.png";
@@ -16,6 +17,51 @@ import wazuhThreatHunting from "../assets/intro-threat-hunting.png";
 import wazuhRuleOverrides from "../assets/rule-override-visual.png";
 import wazuhVulnerabilityDetection from "../assets/vulnerability-detection-dashboard.png";
 export const projects: Project[] = [
+  {
+    id: "trustscan",
+    title: "TrustScan.dev - Privacy Compliance Platform",
+    description:
+      "Free privacy compliance platform with 8 tools for data protection, AI opt-out, and document security - 100% client-side processing.",
+    fullDescription:
+      "TrustScan is a comprehensive privacy compliance platform designed to help businesses and individuals understand which data protection regulations apply to them and secure sensitive documents. Built with a privacy-first approach, all processing happens entirely client-side - your data never reaches any server. The platform includes 8 powerful privacy tools: Privacy Law Checker (identifies applicable regulations from 30+ laws including GDPR, CCPA, EU AI Act), AI Training Opt-Out Hub (facilitates opting out across 30+ AI platforms), Website Privacy Audit (evaluates compliance with 6 checks and produces a trust score), PDF Metadata Stripper (removes hidden data entirely in-browser), Extension Security Auditor (assesses browser extension safety), Privacy Policy Simplifier (clarifies what companies know about users), and upcoming AI Disclosure Scanner and Digital Identity Exposure Score tools. Built by a Wazuh Ambassador with deep cybersecurity expertise, TrustScan achieves perfect PageSpeed scores and is completely free with no paywalls or premium tiers.",
+    image: trustscan,
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "Client-Side Processing",
+      "Privacy-First Architecture",
+    ],
+    features: [
+      "Privacy Law Checker covering 30+ international regulations",
+      "AI Training Opt-Out Hub for 30+ AI platforms",
+      "Website Privacy Audit with trust scoring",
+      "PDF Metadata Stripper with 100% client-side processing",
+      "Browser Extension Security Auditor",
+      "Privacy Policy Simplifier for easy understanding",
+      "Zero data collection - completely private",
+      "Perfect PageSpeed performance score",
+      "Free forever with no premium tiers",
+    ],
+    challenges: [
+      "Processing sensitive documents entirely client-side without server interaction",
+      "Keeping up with 30+ evolving privacy regulations worldwide",
+      "Making complex privacy laws understandable for non-experts",
+      "Achieving perfect performance while handling complex operations in-browser",
+      "Building trust with users handling sensitive privacy data",
+    ],
+    solutions: [
+      "Implemented all document processing using browser APIs and Web Workers",
+      "Created a comprehensive regulation database with regular updates",
+      "Designed intuitive UI with clear explanations and actionable insights",
+      "Optimized bundle size and lazy loading for perfect PageSpeed scores",
+      "Open architecture with transparent privacy-first approach and no accounts required",
+    ],
+    liveLink: "https://trustscan.dev",
+    githubLink: "",
+    category: "security",
+  },
   {
     id: "audit-tool",
     title: "Kalibro - Site Audit & Trust Analysis Platform",
