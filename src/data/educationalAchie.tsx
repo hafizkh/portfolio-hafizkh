@@ -10,10 +10,10 @@ import {
 export const educationAchievements = [
   {
     icon: <GraduationCap className="w-12 h-12 text-primary-500" />,
-    title: "Computer Science",
-    description: "Tampere University",
-    majors: "Full Stack & Cloud",
-    date: "2025 - 2027",
+    title: "Master of Science in Data Science",
+    description: "University of Helsinki",
+    majors: "Data Science & Machine Learning",
+    date: "August 2026 - Present",
   },
   {
     icon: <GraduationCap className="w-12 h-12 text-primary-500" />,
