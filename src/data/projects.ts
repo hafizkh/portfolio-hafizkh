@@ -16,6 +16,8 @@ import wazuhFIMVirusTotal from "../assets/virustotal-threat-hunting.png";
 import wazuhThreatHunting from "../assets/intro-threat-hunting.png";
 import wazuhRuleOverrides from "../assets/rule-override-visual.png";
 import wazuhVulnerabilityDetection from "../assets/vulnerability-detection-dashboard.png";
+import dataformInsightEngine from "../assets/dataform-insight-engine-flow.png";
+
 export const projects: Project[] = [
   {
     id: "trustscan",
@@ -107,6 +109,7 @@ export const projects: Project[] = [
     githubLink: "",
     category: "fullstack",
   },
+  
   {
     id: "hyper-store",
     title: "E-Commerce Store - Hyper Store",
@@ -322,6 +325,40 @@ export const projects: Project[] = [
     githubLink: "https://github.com/hafizkh/Tic-Tac-Toe",
     category: "frontend",
   },
+    {
+    id: "dataform-insight-engine",
+    title: "DataForm Insight Engine",
+    description:
+      "Power Platform pipeline that syncs Microsoft Forms survey responses through SharePoint into a live Power BI dashboard.",
+    fullDescription:
+      "A HAMK university group project (2022) automating survey data collection and reporting. A Power Automate flow triggers on every new Microsoft Forms submission and writes the response as a row into a SharePoint list, which feeds an Excel table connected to Power BI Desktop. Dashboard visuals, including gauge charts, update automatically as new responses arrive, removing the need to manually consolidate survey data by hand.",
+    image: dataformInsightEngine,
+    technologies: [
+      "Power Automate",
+      "Microsoft Forms",
+      "SharePoint",
+      "Excel",
+      "Power BI Desktop",
+    ],
+    features: [
+      "Automatic Forms-to-SharePoint sync on every new submission",
+      "SharePoint list feeding a connected Excel table",
+      "Power BI Desktop dashboard with live gauge visualizations",
+      "End-to-end flow verified with real test submissions",
+    ],
+    challenges: [
+      "Mapping dozens of Microsoft Forms survey questions to the right SharePoint and Excel columns",
+      "Keeping the Power BI dataset in sync as new SharePoint rows arrived",
+    ],
+    solutions: [
+      "Built and tested the Power Automate flow (Forms trigger, add-row-to-SharePoint action) end to end",
+      "Connected Power BI Desktop to the synced Excel table and validated live updates against new test submissions",
+    ],
+    liveLink: "",
+    githubLink: "",
+    category: "automation",
+  },
+  
 ];
 
 export const securityLabs: SecurityLab[] = [
@@ -646,4 +683,5 @@ export const securityLabs: SecurityLab[] = [
     liveLink: "https://hafizkh.github.io/Vulnerability-Detection-Overview/",
     githubLink: "https://github.com/hafizkh/Vulnerability-Detection-Overview",
   },
+    
 ];

@@ -3,7 +3,8 @@ export type ProjectCategory =
   | "frontend"
   | "fullstack"
   | "cloud"
-  | "security";
+  | "security"
+  | "automation";
 
 export interface Project {
   id: string;
